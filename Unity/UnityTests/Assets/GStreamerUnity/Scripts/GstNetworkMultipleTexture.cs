@@ -11,7 +11,7 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 		public abstract void Close();
 		public abstract Texture2D[] GetTextures();
 		public abstract bool Process(GstMultipleNetworkPlayer player);
-		public abstract GstImageInfo.EPixelFormat GetFormat();
+		public abstract EPixelFormat GetFormat();
 	}
 
 	public string TargetIP="127.0.0.1";
@@ -160,7 +160,7 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 		if(_player.IsLoaded || _player.IsPlaying)
 			_player.Close ();
 
-		_player.Format = GstImageInfo.EPixelFormat.EPixel_I420;
+		_player.Format = EPixelFormat.EPixel_I420;
 		if(_processor!=null)
 			_player.Format = _processor.GetFormat();
 

@@ -5,21 +5,6 @@ using System;
 
 public class GStreamerCore {
 	
-	public const string DllName = "GStreamerUnityPlugin";
-	
-	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-	extern static private bool mray_gstreamer_initialize(  );
-
-	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-	extern static private void mray_gstreamer_shutdown(  );
-	
-	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-	extern static private bool mray_gstreamer_isActive(  );
-
-
-	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-	extern static private void mray_SetDebugFunction( IntPtr str );
-
 
 	static public float Time=0;
 
@@ -41,7 +26,7 @@ public class GStreamerCore {
 	{
 		get 	
 		{
-			return mray_gstreamer_isActive();	
+			return GStLib.mray_gstreamer_isActive();	
 		}
 	}
 	public static void Ref()
@@ -59,13 +44,12 @@ public class GStreamerCore {
 			IntPtr intptr_del=Marshal.GetFunctionPointerForDelegate(callback);
 			mray_SetDebugFunction(intptr_del);
 		}*/
-		Debug.Log("initializing gstreamer");
-		mray_gstreamer_initialize();
+		GStLib.mray_gstreamer_initialize();
 	}
 	public static void Unref()
 	{
 		if (IsActive) 
-			mray_gstreamer_shutdown();
+			GStLib.mray_gstreamer_shutdown();
 		/*
 		if (!IsActive) {
 			if(_nativeLibraryPtr!=IntPtr.Zero)

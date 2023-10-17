@@ -44,10 +44,10 @@ public class CustomSBSPipelinePlayer : MonoBehaviour
 
         m_Texture.OnFrameBlitted += OnFrameBlitted;
         _img_left = new GstImageInfo();
-        _img_left.Create(1, 1, GstImageInfo.EPixelFormat.EPixel_R8G8B8);
+        _img_left.Create(1, 1, EPixelFormat.EPixel_R8G8B8);
 
         _img_right = new GstImageInfo();
-        _img_right.Create(1, 1, GstImageInfo.EPixelFormat.EPixel_R8G8B8);
+        _img_right.Create(1, 1, EPixelFormat.EPixel_R8G8B8);
 
         blittedImageLeft = new Texture2D(1, 1);
         blittedImageLeft.filterMode = FilterMode.Bilinear;

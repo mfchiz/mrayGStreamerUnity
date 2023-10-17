@@ -8,52 +8,6 @@ public class GstCustomPlayer : IGstPlayer
 
 
 
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private System.IntPtr mray_gst_createCustomVideoPlayer();
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private void mray_gst_customPlayerSetPipeline(System.IntPtr p, [MarshalAs(UnmanagedType.LPStr)]string pipeline);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private bool mray_gst_customPlayerCreateStream(System.IntPtr p);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private void mray_gst_customPlayerSetLoop(System.IntPtr p,bool loop);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private bool mray_gst_customPlayerIsLoop(System.IntPtr p);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private void mray_gst_customPlayerGetFrameSize(System.IntPtr p, ref int w, ref int h, ref int comp);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private bool mray_gst_customPlayerCopyFrame(System.IntPtr p, System.IntPtr target);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private bool mray_gst_customPlayerCropFrame(System.IntPtr p, System.IntPtr target, int x, int y, int width, int height);
-
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private void mray_gst_customPlayerBlitImage(System.IntPtr p, System.IntPtr _TextureNativePtr, int _UnityTextureWidth, int _UnityTextureHeight);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private System.IntPtr mray_gst_customPlayerBlitImageNativeGLCall(System.IntPtr p, System.IntPtr _TextureNativePtr, int _UnityTextureWidth, int _UnityTextureHeight);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private int mray_gst_customPlayerFrameCount(System.IntPtr p);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private bool mray_gst_customPlayerGrabAudioFrame(System.IntPtr p);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private int mray_gst_customPlayerGetAudioFrameSize(System.IntPtr p);
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private int mray_gst_customPlayerChannelsCount(System.IntPtr p);
-
-    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-    extern static private bool mray_gst_customPlayerCopyAudioFrame(System.IntPtr p, [In, Out]float[] data);
-
-
     class _AudioWrapper : IGstAudioPlayer
     {
         GstCustomPlayer _owner;
@@ -127,7 +81,7 @@ public class GstCustomPlayer : IGstPlayer
         get
         {
             int w = 0, h = 0, comp = 0;
-            mray_gst_customPlayerGetFrameSize(m_Instance, ref w, ref h, ref comp);
+            GStLib.mray_gst_customPlayerGetFrameSize(m_Instance, ref w, ref h, ref comp);
             return new Vector2(w, h);
         }
     }
@@ -136,7 +90,7 @@ public class GstCustomPlayer : IGstPlayer
         get
         {
             int w = 0, h = 0, comp = 0;
-            mray_gst_customPlayerGetFrameSize(m_Instance, ref w, ref h, ref comp);
+            GStLib.mray_gst_customPlayerGetFrameSize(m_Instance, ref w, ref h, ref comp);
             if (comp == 1)
                 h = h * 2 / 3;
             return new Vector2(w, h);
@@ -145,39 +99,39 @@ public class GstCustomPlayer : IGstPlayer
 
     public GstCustomPlayer()
     {
-        m_Instance = mray_gst_createCustomVideoPlayer();
+        m_Instance = GStLib.mray_gst_createCustomVideoPlayer();
         _audioWrapper = new _AudioWrapper(this);
     }
 
     public override int GetCaptureRate(int index)
     {
-        return mray_gst_customPlayerFrameCount(m_Instance);
+        return GStLib.mray_gst_customPlayerFrameCount(m_Instance);
     }
 
 
     public void SetPipeline(string pipeline)
     {
-        mray_gst_customPlayerSetPipeline(m_Instance, pipeline);
+        GStLib.mray_gst_customPlayerSetPipeline(m_Instance, pipeline);
     }
     public bool CreateStream()
     {
-        return mray_gst_customPlayerCreateStream(m_Instance);
+        return GStLib.mray_gst_customPlayerCreateStream(m_Instance);
     }
 
 
     public void SetLoop(bool loop)
     {
-        mray_gst_customPlayerSetLoop(m_Instance,loop);
+        GStLib.mray_gst_customPlayerSetLoop(m_Instance,loop);
     }
     public bool IsLoop()
     {
-        return mray_gst_customPlayerIsLoop(m_Instance);
+        return GStLib.mray_gst_customPlayerIsLoop(m_Instance);
     }
 
     public bool GrabFrame(out Vector2 frameSize, out int components)
     {
         int w = 0, h = 0, c = 0;
-        if (mray_gst_playerGrabFrame(m_Instance, ref w, ref h, ref c, 0))
+        if (GStLib.mray_gst_playerGrabFrame(m_Instance, ref w, ref h, ref c, 0))
         {
             components = c;
             frameSize.x = w;
@@ -190,14 +144,14 @@ public class GstCustomPlayer : IGstPlayer
     }
     public bool CopyFrame(GstImageInfo image)
     {
-        bool ret = mray_gst_customPlayerCopyFrame(m_Instance, image.GetInstance());
+        bool ret = GStLib.mray_gst_customPlayerCopyFrame(m_Instance, image.GetInstance());
         if (ret)
             image.UpdateInfo();
         return ret;
     }
     public bool CopyFrameCropped(GstImageInfo image, int x, int y, int w, int h)
     {
-        bool ret = mray_gst_customPlayerCropFrame(m_Instance, image.GetInstance(), x, y, w, h);
+        bool ret = GStLib.mray_gst_customPlayerCropFrame(m_Instance, image.GetInstance(), x, y, w, h);
         if (ret)
             image.UpdateInfo();
         return ret;
@@ -210,27 +164,27 @@ public class GstCustomPlayer : IGstPlayer
         Vector2 sz = FrameSize;
         if (_TextureWidth != sz.x || _TextureHeight != sz.y) return;    // For now, only works if the texture has the exact same size as the webview.
 
-        GL.IssuePluginEvent(mray_gst_customPlayerBlitImageNativeGLCall(m_Instance, _NativeTexturePtr, _TextureWidth, _TextureHeight), 1);
-        //mray_gst_customPlayerBlitImage(m_Instance, _NativeTexturePtr, _TextureWidth, _TextureHeight);	// We pass Unity's width and height values of the texture
+        GL.IssuePluginEvent(GStLib.mray_gst_customPlayerBlitImageNativeGLCall(m_Instance, _NativeTexturePtr, _TextureWidth, _TextureHeight), 1);
+        //GStLib.mray_gst_customPlayerBlitImage(m_Instance, _NativeTexturePtr, _TextureWidth, _TextureHeight);	// We pass Unity's width and height values of the texture
     }
 
     public bool GrabAudioFrame()
     {
-        return mray_gst_customPlayerGrabAudioFrame(m_Instance);
+        return GStLib.mray_gst_customPlayerGrabAudioFrame(m_Instance);
     }
     public int GetFrameSize()
     {
-        return mray_gst_customPlayerGetAudioFrameSize(m_Instance);
+        return GStLib.mray_gst_customPlayerGetAudioFrameSize(m_Instance);
     }
 
     public bool CopyAudioFrame([In, Out]float[] data)
     {
-        return mray_gst_customPlayerCopyAudioFrame(m_Instance, data);
+        return GStLib.mray_gst_customPlayerCopyAudioFrame(m_Instance, data);
     }
 
     public int ChannelsCount()
     {
-        return mray_gst_customPlayerChannelsCount(m_Instance);
+        return GStLib.mray_gst_customPlayerChannelsCount(m_Instance);
     }
     public int SampleRate()
     {

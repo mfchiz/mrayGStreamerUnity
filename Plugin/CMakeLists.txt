@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.0.0)
 
 project("GStreamerUnityPlugin")
 
+if (POLICY CMP0072)
+  cmake_policy (SET CMP0072 NEW)
+endif(POLICY CMP0072)
+
 find_package(PkgConfig REQUIRED)
 find_package(OpenGL REQUIRED)
 

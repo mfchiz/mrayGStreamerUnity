@@ -73,3 +73,5 @@ Lib/*
 ipch/*
 Bin/*
 Dependencies/*
+Unity/UnityTests/export/*
+Plugin/CMakeFiles/*  

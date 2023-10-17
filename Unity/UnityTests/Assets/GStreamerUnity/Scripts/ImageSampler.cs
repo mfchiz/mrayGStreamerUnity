@@ -20,7 +20,7 @@ public class ImageSampler {
 	bool _newImg=false;
 	int _targetStream=0;
 
-	GstImageInfo.EPixelFormat _format;
+	EPixelFormat _format;
 
 	public GstBaseTexture SourceTexture {
 		get{ return _SrcTexture; }
@@ -90,7 +90,7 @@ public class ImageSampler {
 		}
 	}
 
-	public ImageSampler(GstBaseTexture src,GstImageInfo.EPixelFormat format=GstImageInfo.EPixelFormat.EPixel_Alpha8)
+	public ImageSampler(GstBaseTexture src,EPixelFormat format=EPixelFormat.EPixel_Alpha8)
 	{
 		_format = format;
 		_SrcTexture = src;
