@@ -29,7 +29,6 @@ public class CustomPipelinePlayer : BaseVideoPlayer {
 
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-		
 
 			var p = (Position - 10);
 			if (p < 0)
@@ -37,6 +36,7 @@ public class CustomPipelinePlayer : BaseVideoPlayer {
 				
 			print("yo seek p="+p);
 			
+			InternalTexture.Pause();
 			InternalTexture.Player.Seek(p * 1000);
 		}
 		if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -44,23 +44,19 @@ public class CustomPipelinePlayer : BaseVideoPlayer {
 			var p = (Position + 10);
 			if (p >= Duration)
 				p = Duration;
-				
-			print("yo seek p="+p);
-							
+						
+			InternalTexture.Pause();			
 			InternalTexture.Player.Seek(p * 1000);
 		}
 		if (Input.GetKeyDown(KeyCode.S))
 		{
 			InternalTexture.Pause();
 			
-			print("yo pause");
 		}
 		
 		if (Input.GetKeyDown(KeyCode.P))
 		{
 			InternalTexture.Play();
-		
-			print("yo play");
 					
 		}
 		//if (Input.GetKeyDown(KeyCode.L))

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System.Runtime.InteropServices;
 
 public enum EPixelFormat
@@ -737,11 +738,19 @@ public class GStLib : MonoBehaviour
 	#if UNITY_EDITOR
 		if(!isSetup){
 
-			string libPath = "/home/matt/projects/GStreamerUnity/Unity/UnityTests/Assets/Plugins/Linux/";
-			 
-			// Open native library
-			libraryHandle = OpenLibrary(libPath + libName);
-	
+			string libraryPath = "";
+			
+ 			var assets = AssetDatabase.FindAssets("libGStreamerUnityPlugin");
+ 			
+            foreach (var asset in assets)
+            {
+                libraryPath=AssetDatabase.GUIDToAssetPath(asset);
+              	UnityEngine.Debug.Log("GStLib found librarypath in Unity editor " + libraryPath);
+
+            }
+
+			libraryHandle = OpenLibrary(libraryPath);
+		
 	/*		
 			mray_gst_createNetworkAudioPlayer =
 			 GetDelegate<mray_gst_createNetworkAudioPlayerDelegate>(libraryHandle, "mray_gst_createNetworkAudioPlayer");

@@ -1,3 +1,4 @@
+using System;
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class FileVideoPlayer : BaseVideoPlayer
 	public long Position;
 	public long Duration;
 
-	[SerializeField]
+
 	bool _loop=false;
 	public bool Loop
     {
@@ -63,26 +64,42 @@ public class FileVideoPlayer : BaseVideoPlayer
 		Position = InternalTexture.Player.GetPosition() / 1000;
 		Duration = InternalTexture.Player.GetDuration() / 1000;
 
+		Position = InternalTexture.Player.GetPosition() / 1000;
+		Duration = InternalTexture.Player.GetDuration() / 1000;
+
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-			var p = (Position - 5000);
+
+			var p = (Position - 5);
 			if (p < 0)
 				p = 0;
+				
+			print("yo seek p="+p);
+			
+			InternalTexture.Pause();
 			InternalTexture.Player.Seek(p * 1000);
 		}
 		if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
-			var p = (Position + 5000);
+			var p = (Position + 5);
 			if (p >= Duration)
 				p = Duration;
+						
+			InternalTexture.Pause();			
 			InternalTexture.Player.Seek(p * 1000);
 		}
 		if (Input.GetKeyDown(KeyCode.S))
+		{
 			InternalTexture.Pause();
-
+			
+		}
+		
 		if (Input.GetKeyDown(KeyCode.P))
+		{
 			InternalTexture.Play();
-		if (Input.GetKeyDown(KeyCode.L))
-			Loop=!Loop;
+					
+		}
+		//if (Input.GetKeyDown(KeyCode.L))
+		//	Loop=!Loop;
 	}
 }
