@@ -1,8 +1,2246 @@
-[03:11:29] Info: RYAN Loading version 1
+[14:26:17] Info: Render API: 4
 
-[03:11:29] Info: CALLED ONPLUGIN LOAD RYAN
+[14:26:17] Info: Render API: 21
 
-[03:11:29] Info: Render API: 4
+[14:26:26] mray_gstreamer_initialize
+[14:26:26] Initializing GStreamer Engine
+[14:26:26] Initializing GStreamer Engine - Done
+[14:26:26] Initializing GStreamer
+[14:26:26] GStreamerCore - Registering Elements!
+[14:26:26] GStreamerCore - GStreamer inited
+[14:26:26] Initializing GStreamer - Done
+[14:26:26] Entering main loop
+[14:26:26] Info: Creating Pipeline:  uridecodebin3 buffer-duration=18446744073709551615  use-buffering=true uri=https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8 ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
 
-[03:11:29] Info: Render API: 21
+[14:26:26] Info: : GstPipelineHandler::CreatePipeline 
+
+[14:26:26] Info: : Pausing
+
+[14:26:26] Info: : Playing
+
+[14:26:26] Info: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ‘gsettings-backend’
+
+[14:26:26] Info: _g_io_module_get_default: Found default implementation libproxy (GLibproxyResolver) for ‘gio-proxy-resolver’
+
+[14:26:26] Info: GSocketClient: Starting new address enumeration
+
+[14:26:26] Info: IPv6 DNS error: Error resolving “test-streams.mux.dev”: Name or service not known
+
+[14:26:26] Info: GSocketClient: Address enumeration succeeded
+
+[14:26:26] Info: GSocketClient: Starting TCP connection attempt
+
+[14:26:26] Info: GSocketClient: TCP connection successful
+
+[14:26:26] Info: GSocketClient: Starting application layer connection
+
+[14:26:26] Info: GSocketClient: Connection successful!
+
+[14:26:26] Info: _g_io_module_get_default: Found default implementation gnutls (GTlsBackendGnutls) for ‘gio-tls-backend’
+
+[14:26:26] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+
+[14:26:26] Info: Buffering --> 0%
+
+[14:26:26] Info: Buffering --> 1%
+
+[14:26:26] Info: Buffering --> 0%
+
+[14:26:26] Info: Buffering --> 3%
+
+[14:26:26] Info: Buffering --> 0%
+
+[14:26:26] Info: Buffering --> 3%
+
+[14:26:26] Info: Buffering --> 0%
+
+[14:26:26] Info: Buffering --> 3%
+
+[14:26:26] Info: Buffering --> 0%
+
+[14:26:26] Info: Buffering --> 1%
+
+[14:26:26] Info: Buffering --> 0%
+
+[14:26:26] Info: Buffering --> 3%
+
+[14:26:26] Info: Buffering --> 8%
+
+[14:26:26] Info: Buffering --> 12%
+
+[14:26:26] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+
+[14:26:26] Info: : Playing
+
+[14:26:26] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+
+[14:26:26] Info: Buffering --> 15%
+
+[14:26:26] Info: Buffering --> 19%
+
+[14:26:26] Info: Buffering --> 24%
+
+[14:26:26] Info: Buffering --> 27%
+
+[14:26:26] Info: Buffering --> 31%
+
+[14:26:26] Info: Buffering --> 36%
+
+[14:26:26] Info: Buffering --> 39%
+
+[14:26:26] Info: Buffering --> 43%
+
+[14:26:26] Info: Buffering --> 46%
+
+[14:26:26] Info: Buffering --> 49%
+
+[14:26:26] Info: Buffering --> 53%
+
+[14:26:26] Info: Buffering --> 56%
+
+[14:26:26] Info: Buffering --> 59%
+
+[14:26:26] Info: Buffering --> 63%
+
+[14:26:26] Info: Buffering --> 66%
+
+[14:26:26] Info: Buffering --> 70%
+
+[14:26:26] Info: Buffering --> 78%
+
+[14:26:26] Info: Buffering --> 84%
+
+[14:26:26] Info: Buffering --> 87%
+
+[14:26:26] Info: Buffering --> 91%
+
+[14:26:27] Info: Buffering --> 94%
+
+[14:26:27] Info: Buffering --> 97%
+
+[14:26:27] Info: Buffering --> 100%
+
+[14:26:52] Info: : Pausing
+
+[14:26:52] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+
+[14:26:53] Info: Buffering --> 0%
+
+[14:26:55] Info: TriggerPlay: Seeking into: 16000
+
+[14:27:01] Info: : Playing
+
+[14:27:01] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+
+[14:27:02] Info: Buffering --> 1%
+
+[14:27:02] Info: Buffering --> 0%
+
+[14:27:03] Info: Buffering --> 1%
+
+[14:27:03] Info: Buffering --> 0%
+
+[14:27:03] Info: Buffering --> 1%
+
+[14:27:03] Info: Buffering --> 2%
+
+[14:27:03] Info: Buffering --> 1%
+
+[14:27:03] Info: Buffering --> 0%
+
+[14:27:03] Info: Buffering --> 1%
+
+[14:27:03] Info: Buffering --> 2%
+
+[14:27:03] Info: Buffering --> 3%
+
+[14:27:03] Info: Buffering --> 2%
+
+[14:27:03] Info: Buffering --> 3%
+
+[14:27:03] Info: Buffering --> 4%
+
+[14:27:03] Info: Buffering --> 3%
+
+[14:27:03] Info: Buffering --> 4%
+
+[14:27:03] Info: Buffering --> 5%
+
+[14:27:03] Info: Buffering --> 4%
+
+[14:27:03] Info: Buffering --> 5%
+
+[14:27:03] Info: Buffering --> 6%
+
+[14:27:03] Info: Buffering --> 5%
+
+[14:27:03] Info: Buffering --> 6%
+
+[14:27:03] Info: Buffering --> 5%
+
+[14:27:03] Info: Buffering --> 6%
+
+[14:27:03] Info: Buffering --> 7%
+
+[14:27:03] Info: Buffering --> 6%
+
+[14:27:03] Info: Buffering --> 7%
+
+[14:27:03] Info: Buffering --> 8%
+
+[14:27:03] Info: Buffering --> 7%
+
+[14:27:03] Info: Buffering --> 8%
+
+[14:27:03] Info: Buffering --> 7%
+
+[14:27:03] Info: Buffering --> 8%
+
+[14:27:03] Info: Buffering --> 7%
+
+[14:27:03] Info: Buffering --> 6%
+
+[14:27:03] Info: Buffering --> 5%
+
+[14:27:03] Info: Buffering --> 6%
+
+[14:27:03] Info: Buffering --> 7%
+
+[14:27:03] Info: Buffering --> 8%
+
+[14:27:03] Info: Buffering --> 9%
+
+[14:27:03] Info: Buffering --> 10%
+
+[14:27:03] Info: Buffering --> 9%
+
+[14:27:03] Info: Buffering --> 10%
+
+[14:27:03] Info: Buffering --> 11%
+
+[14:27:03] Info: Buffering --> 12%
+
+[14:27:03] Info: Buffering --> 13%
+
+[14:27:03] Info: Buffering --> 14%
+
+[14:27:03] Info: Buffering --> 15%
+
+[14:27:03] Info: Buffering --> 16%
+
+[14:27:03] Info: Buffering --> 17%
+
+[14:27:03] Info: Buffering --> 18%
+
+[14:27:03] Info: Buffering --> 19%
+
+[14:27:03] Info: Buffering --> 20%
+
+[14:27:04] Info: Buffering --> 21%
+
+[14:27:04] Info: Buffering --> 22%
+
+[14:27:04] Info: Buffering --> 21%
+
+[14:27:04] Info: Buffering --> 20%
+
+[14:27:04] Info: Buffering --> 21%
+
+[14:27:04] Info: Buffering --> 22%
+
+[14:27:04] Info: Buffering --> 21%
+
+[14:27:04] Info: Buffering --> 23%
+
+[14:27:04] Info: Buffering --> 24%
+
+[14:27:04] Info: Buffering --> 25%
+
+[14:27:04] Info: Buffering --> 26%
+
+[14:27:04] Info: Buffering --> 27%
+
+[14:27:04] Info: Buffering --> 28%
+
+[14:27:04] Info: Buffering --> 29%
+
+[14:27:04] Info: Buffering --> 30%
+
+[14:27:04] Info: Buffering --> 31%
+
+[14:27:04] Info: Buffering --> 33%
+
+[14:27:04] Info: Buffering --> 34%
+
+[14:27:04] Info: Buffering --> 35%
+
+[14:27:04] Info: Buffering --> 36%
+
+[14:27:04] Info: Buffering --> 37%
+
+[14:27:04] Info: Buffering --> 38%
+
+[14:27:04] Info: Buffering --> 39%
+
+[14:27:04] Info: Buffering --> 40%
+
+[14:27:04] Info: Buffering --> 41%
+
+[14:27:04] Info: Buffering --> 42%
+
+[14:27:04] Info: Buffering --> 43%
+
+[14:27:04] Info: Buffering --> 44%
+
+[14:27:04] Info: Buffering --> 45%
+
+[14:27:04] Info: Buffering --> 46%
+
+[14:27:04] Info: Buffering --> 47%
+
+[14:27:04] Info: Buffering --> 48%
+
+[14:27:04] Info: Buffering --> 49%
+
+[14:27:04] Info: Buffering --> 50%
+
+[14:27:04] Info: Buffering --> 51%
+
+[14:27:04] Info: Buffering --> 52%
+
+[14:27:04] Info: Buffering --> 53%
+
+[14:27:04] Info: Buffering --> 54%
+
+[14:27:04] Info: Buffering --> 55%
+
+[14:27:04] Info: Buffering --> 56%
+
+[14:27:04] Info: Buffering --> 57%
+
+[14:27:04] Info: Buffering --> 56%
+
+[14:27:04] Info: Buffering --> 55%
+
+[14:27:04] Info: Buffering --> 56%
+
+[14:27:04] Info: Buffering --> 55%
+
+[14:27:04] Info: Buffering --> 54%
+
+[14:27:04] Info: Buffering --> 53%
+
+[14:27:04] Info: Buffering --> 52%
+
+[14:27:04] Info: Buffering --> 51%
+
+[14:27:04] Info: Buffering --> 50%
+
+[14:27:04] Info: Buffering --> 49%
+
+[14:27:04] Info: Buffering --> 48%
+
+[14:27:04] Info: Buffering --> 47%
+
+[14:27:04] Info: Buffering --> 48%
+
+[14:27:04] Info: Buffering --> 47%
+
+[14:27:04] Info: Buffering --> 48%
+
+[14:27:04] Info: Buffering --> 49%
+
+[14:27:04] Info: Buffering --> 48%
+
+[14:27:04] Info: Buffering --> 47%
+
+[14:27:04] Info: Buffering --> 46%
+
+[14:27:04] Info: Buffering --> 45%
+
+[14:27:04] Info: Buffering --> 44%
+
+[14:27:04] Info: Buffering --> 43%
+
+[14:27:04] Info: Buffering --> 42%
+
+[14:27:04] Info: Buffering --> 41%
+
+[14:27:04] Info: Buffering --> 40%
+
+[14:27:04] Info: Buffering --> 41%
+
+[14:27:04] Info: Buffering --> 42%
+
+[14:27:04] Info: Buffering --> 43%
+
+[14:27:04] Info: Buffering --> 44%
+
+[14:27:04] Info: Buffering --> 45%
+
+[14:27:04] Info: Buffering --> 44%
+
+[14:27:04] Info: Buffering --> 45%
+
+[14:27:04] Info: Buffering --> 46%
+
+[14:27:04] Info: Buffering --> 47%
+
+[14:27:04] Info: Buffering --> 48%
+
+[14:27:04] Info: Buffering --> 49%
+
+[14:27:04] Info: Buffering --> 50%
+
+[14:27:04] Info: Buffering --> 48%
+
+[14:27:05] Info: Buffering --> 47%
+
+[14:27:05] Info: Buffering --> 46%
+
+[14:27:05] Info: Buffering --> 45%
+
+[14:27:05] Info: Buffering --> 46%
+
+[14:27:05] Info: Buffering --> 45%
+
+[14:27:05] Info: Buffering --> 46%
+
+[14:27:05] Info: Buffering --> 45%
+
+[14:27:05] Info: Buffering --> 46%
+
+[14:27:05] Info: Buffering --> 48%
+
+[14:27:05] Info: Buffering --> 49%
+
+[14:27:05] Info: Buffering --> 48%
+
+[14:27:05] Info: Buffering --> 49%
+
+[14:27:05] Info: Buffering --> 50%
+
+[14:27:05] Info: Buffering --> 51%
+
+[14:27:05] Info: Buffering --> 52%
+
+[14:27:05] Info: Buffering --> 53%
+
+[14:27:05] Info: Buffering --> 52%
+
+[14:27:05] Info: Buffering --> 53%
+
+[14:27:05] Info: Buffering --> 54%
+
+[14:27:05] Info: Buffering --> 55%
+
+[14:27:05] Info: Buffering --> 56%
+
+[14:27:05] Info: Buffering --> 57%
+
+[14:27:05] Info: Buffering --> 58%
+
+[14:27:05] Info: Buffering --> 59%
+
+[14:27:05] Info: Buffering --> 60%
+
+[14:27:05] Info: Buffering --> 61%
+
+[14:27:05] Info: Buffering --> 60%
+
+[14:27:05] Info: Buffering --> 61%
+
+[14:27:05] Info: Buffering --> 63%
+
+[14:27:05] Info: Buffering --> 64%
+
+[14:27:05] Info: Buffering --> 65%
+
+[14:27:05] Info: Buffering --> 66%
+
+[14:27:05] Info: Buffering --> 67%
+
+[14:27:05] Info: Buffering --> 68%
+
+[14:27:05] Info: Buffering --> 66%
+
+[14:27:05] Info: Buffering --> 67%
+
+[14:27:05] Info: Buffering --> 68%
+
+[14:27:05] Info: Buffering --> 69%
+
+[14:27:05] Info: Buffering --> 70%
+
+[14:27:05] Info: Buffering --> 71%
+
+[14:27:05] Info: Buffering --> 72%
+
+[14:27:05] Info: Buffering --> 73%
+
+[14:27:06] Info: Buffering --> 74%
+
+[14:27:06] Info: Buffering --> 75%
+
+[14:27:06] Info: Buffering --> 74%
+
+[14:27:06] Info: Buffering --> 76%
+
+[14:27:06] Info: Buffering --> 77%
+
+[14:27:06] Info: Buffering --> 78%
+
+[14:27:06] Info: Buffering --> 77%
+
+[14:27:06] Info: Buffering --> 78%
+
+[14:27:06] Info: Buffering --> 79%
+
+[14:27:06] Info: Buffering --> 80%
+
+[14:27:06] Info: Buffering --> 79%
+
+[14:27:06] Info: Buffering --> 80%
+
+[14:27:06] Info: Buffering --> 79%
+
+[14:27:06] Info: Buffering --> 80%
+
+[14:27:06] Info: Buffering --> 79%
+
+[14:27:06] Info: Buffering --> 78%
+
+[14:27:06] Info: Buffering --> 79%
+
+[14:27:06] Info: Buffering --> 80%
+
+[14:27:06] Info: Buffering --> 81%
+
+[14:27:06] Info: Buffering --> 82%
+
+[14:27:06] Info: Buffering --> 81%
+
+[14:27:06] Info: Buffering --> 82%
+
+[14:27:06] Info: Buffering --> 83%
+
+[14:27:06] Info: Buffering --> 84%
+
+[14:27:06] Info: Buffering --> 83%
+
+[14:27:06] Info: Buffering --> 84%
+
+[14:27:06] Info: Buffering --> 85%
+
+[14:27:06] Info: Buffering --> 86%
+
+[14:27:06] Info: Buffering --> 87%
+
+[14:27:06] Info: Buffering --> 88%
+
+[14:27:06] Info: Buffering --> 89%
+
+[14:27:06] Info: Buffering --> 90%
+
+[14:27:06] Info: Buffering --> 91%
+
+[14:27:06] Info: Buffering --> 92%
+
+[14:27:06] Info: Buffering --> 93%
+
+[14:27:06] Info: Buffering --> 94%
+
+[14:27:06] Info: Buffering --> 95%
+
+[14:27:06] Info: Buffering --> 96%
+
+[14:27:06] Info: Buffering --> 97%
+
+[14:27:06] Info: Buffering --> 98%
+
+[14:27:06] Info: Buffering --> 99%
+
+[14:27:06] Info: Buffering --> 100%
+
+[14:27:18] Info: : Pausing
+
+[14:27:18] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+
+[14:27:19] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 0%
+
+[14:27:20] Info: Buffering --> 1%
+
+[14:27:20] Info: Buffering --> 2%
+
+[14:27:20] Info: Buffering --> 3%
+
+[14:27:20] Info: Buffering --> 4%
+
+[14:27:20] Info: Buffering --> 5%
+
+[14:27:20] Info: Buffering --> 6%
+
+[14:27:20] Info: Buffering --> 7%
+
+[14:27:20] Info: Buffering --> 8%
+
+[14:27:20] Info: Buffering --> 9%
+
+[14:27:20] Info: Buffering --> 10%
+
+[14:27:20] Info: Buffering --> 11%
+
+[14:27:20] Info: Buffering --> 12%
+
+[14:27:20] Info: Buffering --> 13%
+
+[14:27:20] Info: Buffering --> 14%
+
+[14:27:20] Info: Buffering --> 15%
+
+[14:27:20] Info: Buffering --> 16%
+
+[14:27:20] Info: Buffering --> 17%
+
+[14:27:20] Info: Buffering --> 18%
+
+[14:27:20] Info: Buffering --> 19%
+
+[14:27:20] Info: Buffering --> 21%
+
+[14:27:20] Info: Buffering --> 22%
+
+[14:27:20] Info: Buffering --> 23%
+
+[14:27:20] Info: Buffering --> 24%
+
+[14:27:20] Info: Buffering --> 25%
+
+[14:27:20] Info: Buffering --> 26%
+
+[14:27:20] Info: Buffering --> 27%
+
+[14:27:20] Info: Buffering --> 28%
+
+[14:27:20] Info: Buffering --> 30%
+
+[14:27:20] Info: Buffering --> 31%
+
+[14:27:20] Info: Buffering --> 32%
+
+[14:27:20] Info: Buffering --> 33%
+
+[14:27:20] Info: Buffering --> 34%
+
+[14:27:20] Info: Buffering --> 35%
+
+[14:27:20] Info: Buffering --> 36%
+
+[14:27:20] Info: Buffering --> 37%
+
+[14:27:21] Info: Buffering --> 39%
+
+[14:27:21] Info: Buffering --> 42%
+
+[14:27:21] Info: Buffering --> 43%
+
+[14:27:21] Info: Buffering --> 44%
+
+[14:27:21] Info: Buffering --> 45%
+
+[14:27:21] Info: Buffering --> 46%
+
+[14:27:21] Info: Buffering --> 47%
+
+[14:27:21] Info: Buffering --> 48%
+
+[14:27:21] Info: Buffering --> 49%
+
+[14:27:21] Info: Buffering --> 50%
+
+[14:27:21] Info: Buffering --> 51%
+
+[14:27:21] Info: Buffering --> 52%
+
+[14:27:21] Info: Buffering --> 53%
+
+[14:27:21] Info: Buffering --> 54%
+
+[14:27:21] Info: Buffering --> 55%
+
+[14:27:21] Info: Buffering --> 56%
+
+[14:27:21] Info: Buffering --> 57%
+
+[14:27:21] Info: Buffering --> 58%
+
+[14:27:21] Info: Buffering --> 0%
+
+[14:27:24] Info: Buffering --> 1%
+
+[14:27:24] Info: Buffering --> 2%
+
+[14:27:24] Info: Buffering --> 3%
+
+[14:27:24] Info: Buffering --> 4%
+
+[14:27:24] Info: Buffering --> 5%
+
+[14:27:24] Info: Buffering --> 6%
+
+[14:27:24] Info: Buffering --> 7%
+
+[14:27:24] Info: Buffering --> 8%
+
+[14:27:24] Info: Buffering --> 9%
+
+[14:27:24] Info: Buffering --> 10%
+
+[14:27:24] Info: Buffering --> 11%
+
+[14:27:24] Info: Buffering --> 12%
+
+[14:27:24] Info: Buffering --> 13%
+
+[14:27:25] Info: Buffering --> 14%
+
+[14:27:25] Info: Buffering --> 15%
+
+[14:27:25] Info: Buffering --> 16%
+
+[14:27:25] Info: Buffering --> 17%
+
+[14:27:25] Info: Buffering --> 18%
+
+[14:27:25] Info: Buffering --> 19%
+
+[14:27:25] Info: Buffering --> 20%
+
+[14:27:25] Info: Buffering --> 21%
+
+[14:27:25] Info: Buffering --> 22%
+
+[14:27:25] Info: Buffering --> 23%
+
+[14:27:25] Info: Buffering --> 24%
+
+[14:27:25] Info: Buffering --> 25%
+
+[14:27:25] Info: Buffering --> 26%
+
+[14:27:25] Info: Buffering --> 27%
+
+[14:27:25] Info: Buffering --> 28%
+
+[14:27:25] Info: Buffering --> 29%
+
+[14:27:25] Info: Buffering --> 30%
+
+[14:27:25] Info: Buffering --> 31%
+
+[14:27:25] Info: Buffering --> 32%
+
+[14:27:25] Info: Buffering --> 33%
+
+[14:27:25] Info: Buffering --> 34%
+
+[14:27:25] Info: Buffering --> 35%
+
+[14:27:25] Info: Buffering --> 36%
+
+[14:27:25] Info: Buffering --> 37%
+
+[14:27:25] Info: Buffering --> 38%
+
+[14:27:25] Info: Buffering --> 39%
+
+[14:27:26] Info: Buffering --> 40%
+
+[14:27:26] Info: Buffering --> 41%
+
+[14:27:26] Info: Buffering --> 42%
+
+[14:27:26] Info: Buffering --> 43%
+
+[14:27:26] Info: Buffering --> 44%
+
+[14:27:26] Info: Buffering --> 45%
+
+[14:27:26] Info: Buffering --> 46%
+
+[14:27:26] Info: Buffering --> 47%
+
+[14:27:26] Info: TriggerPlay: Seeking into: 12000
+
+[14:27:26] Info: Buffering --> 0%
+
+[14:27:28] Info: Buffering --> 1%
+
+[14:27:28] Info: Buffering --> 0%
+
+[14:27:28] Info: : Playing
+
+[14:27:28] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+
+[14:27:29] Info: Buffering --> 1%
+
+[14:27:29] Info: Buffering --> 0%
+
+[14:27:30] Info: Buffering --> 1%
+
+[14:27:30] Info: Buffering --> 0%
+
+[14:27:30] Info: Buffering --> 2%
+
+[14:27:30] Info: Buffering --> 0%
+
+[14:27:30] Info: Buffering --> 1%
+
+[14:27:30] Info: Buffering --> 2%
+
+[14:27:30] Info: Buffering --> 3%
+
+[14:27:30] Info: Buffering --> 2%
+
+[14:27:30] Info: Buffering --> 3%
+
+[14:27:30] Info: Buffering --> 4%
+
+[14:27:30] Info: Buffering --> 5%
+
+[14:27:30] Info: Buffering --> 4%
+
+[14:27:30] Info: Buffering --> 3%
+
+[14:27:30] Info: Buffering --> 2%
+
+[14:27:30] Info: Buffering --> 3%
+
+[14:27:30] Info: Buffering --> 2%
+
+[14:27:30] Info: Buffering --> 1%
+
+[14:27:30] Info: Buffering --> 0%
+
+[14:27:30] Info: Buffering --> 1%
+
+[14:27:30] Info: Buffering --> 0%
+
+[14:27:30] Info: Buffering --> 1%
+
+[14:27:31] Info: Buffering --> 2%
+
+[14:27:31] Info: Buffering --> 1%
+
+[14:27:31] Info: Buffering --> 2%
+
+[14:27:31] Info: Buffering --> 3%
+
+[14:27:31] Info: Buffering --> 2%
+
+[14:27:31] Info: Buffering --> 1%
+
+[14:27:31] Info: Buffering --> 2%
+
+[14:27:31] Info: Buffering --> 3%
+
+[14:27:31] Info: Buffering --> 2%
+
+[14:27:31] Info: Buffering --> 3%
+
+[14:27:31] Info: Buffering --> 4%
+
+[14:27:31] Info: Buffering --> 3%
+
+[14:27:31] Info: Buffering --> 4%
+
+[14:27:31] Info: Buffering --> 3%
+
+[14:27:31] Info: Buffering --> 4%
+
+[14:27:31] Info: Buffering --> 5%
+
+[14:27:31] Info: Buffering --> 6%
+
+[14:27:31] Info: Buffering --> 5%
+
+[14:27:31] Info: Buffering --> 6%
+
+[14:27:31] Info: Buffering --> 7%
+
+[14:27:31] Info: Buffering --> 6%
+
+[14:27:31] Info: Buffering --> 5%
+
+[14:27:31] Info: Buffering --> 6%
+
+[14:27:31] Info: Buffering --> 7%
+
+[14:27:31] Info: Buffering --> 8%
+
+[14:27:31] Info: Buffering --> 7%
+
+[14:27:31] Info: : Pausing
+
+[14:27:31] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+
+[14:27:31] Info: Buffering --> 8%
+
+[14:27:31] Info: Buffering --> 9%
+
+[14:27:31] Info: Buffering --> 10%
+
+[14:27:31] Info: Buffering --> 11%
+
+[14:27:31] Info: Buffering --> 12%
+
+[14:27:31] Info: Buffering --> 13%
+
+[14:27:31] Info: Buffering --> 14%
+
+[14:27:31] Info: Buffering --> 15%
+
+[14:27:31] Info: Buffering --> 16%
+
+[14:27:31] Info: Buffering --> 17%
+
+[14:27:31] Info: Buffering --> 18%
+
+[14:27:31] Info: Buffering --> 19%
+
+[14:27:31] Info: Buffering --> 20%
+
+[14:27:31] Info: Buffering --> 21%
+
+[14:27:31] Info: Buffering --> 22%
+
+[14:27:32] Info: Buffering --> 23%
+
+[14:27:32] Info: Buffering --> 24%
+
+[14:27:32] Info: Buffering --> 25%
+
+[14:27:32] Info: Buffering --> 26%
+
+[14:27:32] Info: Buffering --> 27%
+
+[14:27:32] Info: Buffering --> 28%
+
+[14:27:32] Info: Buffering --> 29%
+
+[14:27:32] Info: Buffering --> 30%
+
+[14:27:32] Info: Buffering --> 31%
+
+[14:27:32] Info: Buffering --> 32%
+
+[14:27:32] Info: Buffering --> 33%
+
+[14:27:32] Info: Buffering --> 34%
+
+[14:27:32] Info: Buffering --> 35%
+
+[14:27:32] Info: Buffering --> 36%
+
+[14:27:32] Info: Buffering --> 37%
+
+[14:27:32] Info: Buffering --> 38%
+
+[14:27:32] Info: Buffering --> 39%
+
+[14:27:32] Info: Buffering --> 40%
+
+[14:27:32] Info: Buffering --> 41%
+
+[14:27:32] Info: Buffering --> 0%
+
+[14:27:35] Info: Buffering --> 1%
+
+[14:27:35] Info: Buffering --> 0%
+
+[14:27:42] Info: Buffering --> 1%
+
+[14:27:42] Info: Buffering --> 2%
+
+[14:27:42] Info: Buffering --> 3%
+
+[14:27:42] Info: Buffering --> 4%
+
+[14:27:42] Info: Buffering --> 5%
+
+[14:27:42] Info: Buffering --> 6%
+
+[14:27:42] Info: Buffering --> 7%
+
+[14:27:42] Info: Buffering --> 8%
+
+[14:27:42] Info: Buffering --> 9%
+
+[14:27:42] Info: Buffering --> 10%
+
+[14:27:42] Info: Buffering --> 11%
+
+[14:27:42] Info: Buffering --> 12%
+
+[14:27:42] Info: Buffering --> 13%
+
+[14:27:42] Info: Buffering --> 14%
+
+[14:27:42] Info: Buffering --> 15%
+
+[14:27:42] Info: Buffering --> 16%
+
+[14:27:42] Info: Buffering --> 17%
+
+[14:27:42] Info: Buffering --> 18%
+
+[14:27:42] Info: Buffering --> 19%
+
+[14:27:42] Info: Buffering --> 20%
+
+[14:27:42] Info: Buffering --> 21%
+
+[14:27:42] Info: Buffering --> 22%
+
+[14:27:42] Info: Buffering --> 23%
+
+[14:27:42] Info: Buffering --> 24%
+
+[14:27:42] Info: Buffering --> 25%
+
+[14:27:42] Info: Buffering --> 26%
+
+[14:27:42] Info: Buffering --> 27%
+
+[14:27:42] Info: Buffering --> 28%
+
+[14:27:42] Info: Buffering --> 29%
+
+[14:27:42] Info: Buffering --> 30%
+
+[14:27:42] Info: Buffering --> 31%
+
+[14:27:42] Info: Buffering --> 32%
+
+[14:27:42] Info: Buffering --> 33%
+
+[14:27:43] Info: Buffering --> 34%
+
+[14:27:43] Info: Buffering --> 35%
+
+[14:27:43] Info: Buffering --> 36%
+
+[14:27:43] Info: Buffering --> 37%
+
+[14:27:43] Info: Buffering --> 38%
+
+[14:27:43] Info: Buffering --> 39%
+
+[14:27:43] Info: Buffering --> 40%
+
+[14:27:43] Info: Buffering --> 41%
+
+[14:27:43] Info: Buffering --> 42%
+
+[14:27:43] Info: Buffering --> 44%
+
+[14:27:43] Info: Buffering --> 45%
+
+[14:27:43] Info: Buffering --> 46%
+
+[14:27:43] Info: Buffering --> 47%
+
+[14:27:43] Info: Buffering --> 48%
+
+[14:27:43] Info: Buffering --> 49%
+
+[14:27:43] Info: Buffering --> 50%
+
+[14:27:43] Info: Buffering --> 51%
+
+[14:27:43] Info: Buffering --> 52%
+
+[14:27:43] Info: Buffering --> 53%
+
+[14:27:43] Info: Buffering --> 54%
+
+[14:27:43] Info: Buffering --> 55%
+
+[14:27:43] Info: Buffering --> 56%
+
+[14:27:43] Info: Buffering --> 57%
+
+[14:27:43] Info: Buffering --> 58%
+
+[14:27:43] Info: Buffering --> 59%
+
+[14:27:43] Info: Buffering --> 60%
+
+[14:27:43] Info: TriggerPlay: Seeking into: 54000
+
+[14:27:43] Info: Buffering --> 0%
+
+[14:27:46] Info: : Playing
+
+[14:27:46] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+
+[14:27:47] Info: Buffering --> 1%
+
+[14:27:47] Info: Buffering --> 0%
+
+[14:27:47] Info: Buffering --> 1%
+
+[14:27:47] Info: Buffering --> 0%
+
+[14:27:47] Info: Buffering --> 1%
+
+[14:27:47] Info: Buffering --> 0%
+
+[14:27:47] Info: Buffering --> 1%
+
+[14:27:47] Info: Buffering --> 2%
+
+[14:27:47] Info: Buffering --> 3%
+
+[14:27:47] Info: Buffering --> 4%
+
+[14:27:47] Info: Buffering --> 3%
+
+[14:27:47] Info: Buffering --> 4%
+
+[14:27:47] Info: Buffering --> 5%
+
+[14:27:47] Info: Buffering --> 6%
+
+[14:27:47] Info: Buffering --> 5%
+
+[14:27:47] Info: Buffering --> 6%
+
+[14:27:47] Info: Buffering --> 5%
+
+[14:27:47] Info: Buffering --> 6%
+
+[14:27:47] Info: Buffering --> 7%
+
+[14:27:47] Info: Buffering --> 8%
+
+[14:27:47] Info: Buffering --> 9%
+
+[14:27:47] Info: Buffering --> 10%
+
+[14:27:47] Info: Buffering --> 11%
+
+[14:27:47] Info: Buffering --> 12%
+
+[14:27:48] Info: Buffering --> 13%
+
+[14:27:48] Info: Buffering --> 14%
+
+[14:27:48] Info: Buffering --> 13%
+
+[14:27:48] Info: Buffering --> 12%
+
+[14:27:48] Info: Buffering --> 11%
+
+[14:27:48] Info: Buffering --> 12%
+
+[14:27:48] Info: Buffering --> 13%
+
+[14:27:48] Info: Buffering --> 14%
+
+[14:27:48] Info: Buffering --> 13%
+
+[14:27:48] Info: Buffering --> 14%
+
+[14:27:48] Info: Buffering --> 15%
+
+[14:27:48] Info: Buffering --> 14%
+
+[14:27:48] Info: Buffering --> 15%
+
+[14:27:48] Info: Buffering --> 14%
+
+[14:27:48] Info: Buffering --> 15%
+
+[14:27:48] Info: Buffering --> 16%
+
+[14:27:48] Info: Buffering --> 17%
+
+[14:27:48] Info: Buffering --> 18%
+
+[14:27:48] Info: Buffering --> 17%
+
+[14:27:48] Info: Buffering --> 16%
+
+[14:27:48] Info: Buffering --> 17%
+
+[14:27:48] Info: Buffering --> 18%
+
+[14:27:48] Info: Buffering --> 19%
+
+[14:27:48] Info: Buffering --> 20%
+
+[14:27:48] Info: Buffering --> 19%
+
+[14:27:48] Info: Buffering --> 20%
+
+[14:27:48] Info: Buffering --> 21%
+
+[14:27:48] Info: Buffering --> 20%
+
+[14:27:48] Info: Buffering --> 21%
+
+[14:27:48] Info: Buffering --> 20%
+
+[14:27:48] Info: Buffering --> 21%
+
+[14:27:48] Info: Buffering --> 20%
+
+[14:27:48] Info: Buffering --> 19%
+
+[14:27:48] Info: Buffering --> 21%
+
+[14:27:48] Info: Buffering --> 24%
+
+[14:27:48] Info: Buffering --> 25%
+
+[14:27:48] Info: Buffering --> 26%
+
+[14:27:48] Info: Buffering --> 25%
+
+[14:27:48] Info: Buffering --> 26%
+
+[14:27:48] Info: Buffering --> 27%
+
+[14:27:48] Info: Buffering --> 28%
+
+[14:27:48] Info: Buffering --> 29%
+
+[14:27:48] Info: Buffering --> 30%
+
+[14:27:48] Info: Buffering --> 29%
+
+[14:27:48] Info: Buffering --> 30%
+
+[14:27:48] Info: Buffering --> 31%
+
+[14:27:48] Info: Buffering --> 32%
+
+[14:27:48] Info: Buffering --> 33%
+
+[14:27:48] Info: Buffering --> 34%
+
+[14:27:48] Info: Buffering --> 35%
+
+[14:27:48] Info: Buffering --> 36%
+
+[14:27:48] Info: Buffering --> 37%
+
+[14:27:48] Info: Buffering --> 38%
+
+[14:27:49] Info: Buffering --> 39%
+
+[14:27:49] Info: Buffering --> 40%
+
+[14:27:49] Info: Buffering --> 41%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 44%
+
+[14:27:49] Info: Buffering --> 45%
+
+[14:27:49] Info: Buffering --> 46%
+
+[14:27:49] Info: Buffering --> 47%
+
+[14:27:49] Info: Buffering --> 46%
+
+[14:27:49] Info: Buffering --> 47%
+
+[14:27:49] Info: Buffering --> 46%
+
+[14:27:49] Info: Buffering --> 45%
+
+[14:27:49] Info: Buffering --> 44%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 41%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 41%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 44%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 44%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 44%
+
+[14:27:49] Info: Buffering --> 45%
+
+[14:27:49] Info: Buffering --> 44%
+
+[14:27:49] Info: Buffering --> 43%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 41%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 40%
+
+[14:27:49] Info: Buffering --> 42%
+
+[14:27:49] Info: Buffering --> 44%
+
+[14:27:49] Info: Buffering --> 45%
+
+[14:27:49] Info: Buffering --> 47%
+
+[14:27:49] Info: Buffering --> 49%
+
+[14:27:49] Info: Buffering --> 50%
+
+[14:27:49] Info: Buffering --> 52%
+
+[14:27:49] Info: Buffering --> 54%
+
+[14:27:49] Info: Buffering --> 51%
+
+[14:27:49] Info: Buffering --> 52%
+
+[14:27:49] Info: Buffering --> 54%
+
+[14:27:49] Info: Buffering --> 56%
+
+[14:27:49] Info: Buffering --> 57%
+
+[14:27:49] Info: Buffering --> 59%
+
+[14:27:49] Info: Buffering --> 61%
+
+[14:27:49] Info: Buffering --> 62%
+
+[14:27:49] Info: Buffering --> 64%
+
+[14:27:50] Info: Buffering --> 63%
+
+[14:27:50] Info: Buffering --> 65%
+
+[14:27:50] Info: Buffering --> 67%
+
+[14:27:50] Info: Buffering --> 68%
+
+[14:27:50] Info: Buffering --> 69%
+
+[14:27:50] Info: Buffering --> 68%
+
+[14:27:50] Info: Buffering --> 70%
+
+[14:27:50] Info: Buffering --> 69%
+
+[14:27:50] Info: Buffering --> 71%
+
+[14:27:50] Info: Buffering --> 72%
+
+[14:27:50] Info: Buffering --> 71%
+
+[14:27:50] Info: Buffering --> 73%
+
+[14:27:50] Info: Buffering --> 75%
+
+[14:27:50] Info: Buffering --> 77%
+
+[14:27:50] Info: Buffering --> 76%
+
+[14:27:50] Info: Buffering --> 78%
+
+[14:27:50] Info: Buffering --> 77%
+
+[14:27:50] Info: Buffering --> 79%
+
+[14:27:50] Info: Buffering --> 80%
+
+[14:27:50] Info: Buffering --> 81%
+
+[14:27:50] Info: Buffering --> 83%
+
+[14:27:50] Info: Buffering --> 85%
+
+[14:27:50] Info: Buffering --> 84%
+
+[14:27:50] Info: Buffering --> 86%
+
+[14:27:50] Info: Buffering --> 87%
+
+[14:27:50] Info: Buffering --> 86%
+
+[14:27:50] Info: Buffering --> 88%
+
+[14:27:50] Info: Buffering --> 90%
+
+[14:27:50] Info: Buffering --> 91%
+
+[14:27:50] Info: Buffering --> 93%
+
+[14:27:50] Info: Buffering --> 92%
+
+[14:27:50] Info: Buffering --> 94%
+
+[14:27:50] Info: Buffering --> 95%
+
+[14:27:50] Info: Buffering --> 96%
+
+[14:27:50] Info: Buffering --> 98%
+
+[14:27:50] Info: Buffering --> 97%
+
+[14:27:50] Info: Buffering --> 99%
+
+[14:27:50] Info: Buffering --> 98%
+
+[14:27:50] Info: Buffering --> 100%
+
+[14:28:16] Info: : Pausing
+
+[14:28:16] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+
+[14:28:17] Info: Buffering --> 0%
+
+[14:28:19] Info: Buffering --> 1%
+
+[14:28:19] Info: Buffering --> 0%
+
+[14:28:19] Info: Buffering --> 1%
+
+[14:28:19] Info: Buffering --> 0%
+
+[14:28:19] Info: Buffering --> 1%
+
+[14:28:19] Info: Buffering --> 0%
+
+[14:28:19] Info: Buffering --> 1%
+
+[14:28:19] Info: Buffering --> 3%
+
+[14:28:19] Info: Buffering --> 5%
+
+[14:28:19] Info: Buffering --> 6%
+
+[14:28:19] Info: Buffering --> 5%
+
+[14:28:19] Info: Buffering --> 6%
+
+[14:28:19] Info: Buffering --> 8%
+
+[14:28:19] Info: Buffering --> 6%
+
+[14:28:19] Info: Buffering --> 8%
+
+[14:28:19] Info: Buffering --> 6%
+
+[14:28:19] Info: Buffering --> 8%
+
+[14:28:19] Info: Buffering --> 6%
+
+[14:28:19] Info: Buffering --> 8%
+
+[14:28:19] Info: Buffering --> 10%
+
+[14:28:19] Info: Buffering --> 11%
+
+[14:28:19] Info: Buffering --> 13%
+
+[14:28:19] Info: Buffering --> 15%
+
+[14:28:19] Info: Buffering --> 16%
+
+[14:28:19] Info: Buffering --> 18%
+
+[14:28:19] Info: Buffering --> 20%
+
+[14:28:19] Info: Buffering --> 21%
+
+[14:28:19] Info: Buffering --> 22%
+
+[14:28:19] Info: Buffering --> 24%
+
+[14:28:19] Info: Buffering --> 26%
+
+[14:28:19] Info: Buffering --> 27%
+
+[14:28:19] Info: Buffering --> 30%
+
+[14:28:19] Info: Buffering --> 32%
+
+[14:28:19] Info: Buffering --> 33%
+
+[14:28:19] Info: Buffering --> 35%
+
+[14:28:19] Info: Buffering --> 37%
+
+[14:28:19] Info: Buffering --> 38%
+
+[14:28:19] Info: Buffering --> 39%
+
+[14:28:19] Info: Buffering --> 41%
+
+[14:28:19] Info: Buffering --> 0%
+
+[14:28:20] Info: Buffering --> 1%
+
+[14:28:20] Info: Buffering --> 0%
+
+[14:28:20] Info: Buffering --> 3%
+
+[14:28:20] Info: Buffering --> 0%
+
+[14:28:21] Info: Buffering --> 1%
+
+[14:28:21] Info: Buffering --> 2%
+
+[14:28:21] Info: Buffering --> 3%
+
+[14:28:21] Info: Buffering --> 5%
+
+[14:28:21] Info: Buffering --> 8%
+
+[14:28:21] Info: Buffering --> 9%
+
+[14:28:21] Info: Buffering --> 10%
+
+[14:28:21] Info: Buffering --> 11%
+
+[14:28:21] Info: Buffering --> 12%
+
+[14:28:21] Info: Buffering --> 13%
+
+[14:28:21] Info: Buffering --> 14%
+
+[14:28:21] Info: Buffering --> 15%
+
+[14:28:21] Info: Buffering --> 16%
+
+[14:28:21] Info: Buffering --> 17%
+
+[14:28:21] Info: Buffering --> 18%
+
+[14:28:21] Info: Buffering --> 19%
+
+[14:28:21] Info: Buffering --> 20%
+
+[14:28:21] Info: Buffering --> 21%
+
+[14:28:21] Info: Buffering --> 22%
+
+[14:28:21] Info: Buffering --> 23%
+
+[14:28:21] Info: Buffering --> 24%
+
+[14:28:21] Info: Buffering --> 25%
+
+[14:28:21] Info: Buffering --> 26%
+
+[14:28:21] Info: Buffering --> 27%
+
+[14:28:21] Info: Buffering --> 28%
+
+[14:28:21] Info: Buffering --> 29%
+
+[14:28:21] Info: Buffering --> 30%
+
+[14:28:21] Info: Buffering --> 31%
+
+[14:28:21] Info: Buffering --> 32%
+
+[14:28:21] Info: Buffering --> 33%
+
+[14:28:21] Info: Buffering --> 34%
+
+[14:28:21] Info: Buffering --> 35%
+
+[14:28:21] Info: Buffering --> 36%
+
+[14:28:21] Info: Buffering --> 37%
+
+[14:28:21] Info: Buffering --> 38%
+
+[14:28:21] Info: Buffering --> 39%
+
+[14:28:21] Info: Buffering --> 40%
+
+[14:28:21] Info: Buffering --> 41%
+
+[14:28:21] Info: Buffering --> 42%
+
+[14:28:21] Info: Buffering --> 43%
+
+[14:28:21] Info: Buffering --> 44%
+
+[14:28:21] Info: Buffering --> 45%
+
+[14:28:21] Info: Buffering --> 46%
+
+[14:28:22] Info: Buffering --> 47%
+
+[14:28:22] Info: Buffering --> 48%
+
+[14:28:22] Info: Buffering --> 49%
+
+[14:28:22] Info: Buffering --> 50%
+
+[14:28:22] Info: Buffering --> 51%
+
+[14:28:22] Info: Buffering --> 52%
+
+[14:28:22] Info: Buffering --> 53%
+
+[14:28:22] Info: Buffering --> 54%
+
+[14:28:22] Info: Buffering --> 55%
+
+[14:28:22] Info: Buffering --> 56%
+
+[14:28:22] Info: Buffering --> 57%
+
+[14:28:22] Info: Buffering --> 58%
+
+[14:28:22] Info: Buffering --> 59%
+
+[14:28:22] Info: Buffering --> 60%
+
+[14:28:22] Info: Buffering --> 62%
+
+[14:28:22] Info: Buffering --> 63%
+
+[14:28:22] Info: Buffering --> 64%
+
+[14:28:22] Info: Buffering --> 65%
+
+[14:28:22] Info: Buffering --> 66%
+
+[14:28:22] Info: Buffering --> 67%
+
+[14:28:22] Info: Buffering --> 68%
+
+[14:28:22] Info: Buffering --> 0%
+
+[14:28:24] Info: Buffering --> 1%
+
+[14:28:24] Info: Buffering --> 0%
+
+[14:28:24] Info: Buffering --> 1%
+
+[14:28:24] Info: Buffering --> 0%
+
+[14:28:24] Info: Buffering --> 3%
+
+[14:28:24] Info: Buffering --> 0%
+
+[14:28:24] Info: Buffering --> 1%
+
+[14:28:24] Info: Buffering --> 2%
+
+[14:28:24] Info: Buffering --> 3%
+
+[14:28:24] Info: Buffering --> 4%
+
+[14:28:24] Info: Buffering --> 5%
+
+[14:28:24] Info: Buffering --> 6%
+
+[14:28:24] Info: Buffering --> 7%
+
+[14:28:24] Info: Buffering --> 8%
+
+[14:28:24] Info: Buffering --> 9%
+
+[14:28:24] Info: Buffering --> 10%
+
+[14:28:24] Info: Buffering --> 11%
+
+[14:28:24] Info: Buffering --> 12%
+
+[14:28:24] Info: Buffering --> 13%
+
+[14:28:24] Info: Buffering --> 14%
+
+[14:28:24] Info: Buffering --> 15%
+
+[14:28:24] Info: Buffering --> 16%
+
+[14:28:24] Info: Buffering --> 17%
+
+[14:28:24] Info: Buffering --> 18%
+
+[14:28:24] Info: Buffering --> 19%
+
+[14:28:24] Info: Buffering --> 20%
+
+[14:28:24] Info: Buffering --> 21%
+
+[14:28:24] Info: Buffering --> 22%
+
+[14:28:24] Info: Buffering --> 23%
+
+[14:28:24] Info: Buffering --> 24%
+
+[14:28:24] Info: Buffering --> 25%
+
+[14:28:24] Info: Buffering --> 26%
+
+[14:28:24] Info: Buffering --> 27%
+
+[14:28:24] Info: Buffering --> 28%
+
+[14:28:24] Info: Buffering --> 30%
+
+[14:28:24] Info: Buffering --> 31%
+
+[14:28:24] Info: Buffering --> 32%
+
+[14:28:24] Info: Buffering --> 33%
+
+[14:28:24] Info: Buffering --> 34%
+
+[14:28:24] Info: Buffering --> 35%
+
+[14:28:24] Info: Buffering --> 36%
+
+[14:28:24] Info: TriggerPlay: Seeking into: 43000
+
+[14:28:24] Info: Buffering --> 0%
+
+[14:28:26] Info: Buffering --> 1%
+
+[14:28:26] Info: Buffering --> 2%
+
+[14:28:26] Info: Buffering --> 0%
+
+[14:28:26] Info: Buffering --> 1%
+
+[14:28:26] Info: Buffering --> 0%
+
+[14:28:27] Info: : Playing
+
+[14:28:27] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+
+[14:28:27] Info: Buffering --> 1%
+
+[14:28:27] Info: Buffering --> 0%
+
+[14:28:27] Info: Buffering --> 2%
+
+[14:28:27] Info: Buffering --> 0%
+
+[14:28:27] Info: Buffering --> 1%
+
+[14:28:27] Info: Buffering --> 2%
+
+[14:28:27] Info: Buffering --> 0%
+
+[14:28:27] Info: Buffering --> 1%
+
+[14:28:27] Info: Buffering --> 2%
+
+[14:28:27] Info: Buffering --> 3%
+
+[14:28:27] Info: Buffering --> 4%
+
+[14:28:27] Info: Buffering --> 3%
+
+[14:28:27] Info: Buffering --> 4%
+
+[14:28:27] Info: Buffering --> 5%
+
+[14:28:27] Info: Buffering --> 6%
+
+[14:28:27] Info: Buffering --> 7%
+
+[14:28:27] Info: Buffering --> 6%
+
+[14:28:27] Info: Buffering --> 5%
+
+[14:28:27] Info: Buffering --> 6%
+
+[14:28:27] Info: Buffering --> 7%
+
+[14:28:27] Info: Buffering --> 8%
+
+[14:28:27] Info: Buffering --> 7%
+
+[14:28:27] Info: Buffering --> 8%
+
+[14:28:27] Info: Buffering --> 9%
+
+[14:28:27] Info: Buffering --> 10%
+
+[14:28:27] Info: Buffering --> 11%
+
+[14:28:27] Info: Buffering --> 12%
+
+[14:28:27] Info: Buffering --> 11%
+
+[14:28:27] Info: Buffering --> 12%
+
+[14:28:27] Info: Buffering --> 13%
+
+[14:28:27] Info: Buffering --> 14%
+
+[14:28:27] Info: Buffering --> 13%
+
+[14:28:27] Info: Buffering --> 12%
+
+[14:28:27] Info: Buffering --> 13%
+
+[14:28:27] Info: Buffering --> 14%
+
+[14:28:27] Info: Buffering --> 15%
+
+[14:28:27] Info: Buffering --> 14%
+
+[14:28:27] Info: Buffering --> 15%
+
+[14:28:28] Info: Buffering --> 14%
+
+[14:28:28] Info: Buffering --> 15%
+
+[14:28:28] Info: Buffering --> 16%
+
+[14:28:28] Info: Buffering --> 15%
+
+[14:28:28] Info: Buffering --> 16%
+
+[14:28:28] Info: Buffering --> 15%
+
+[14:28:28] Info: Buffering --> 16%
+
+[14:28:28] Info: Buffering --> 15%
+
+[14:28:28] Info: Buffering --> 16%
+
+[14:28:28] Info: Buffering --> 17%
+
+[14:28:28] Info: Buffering --> 16%
+
+[14:28:28] Info: Buffering --> 17%
+
+[14:28:28] Info: Buffering --> 16%
+
+[14:28:28] Info: Buffering --> 17%
+
+[14:28:28] Info: Buffering --> 18%
+
+[14:28:28] Info: Buffering --> 19%
+
+[14:28:28] Info: Buffering --> 20%
+
+[14:28:28] Info: Buffering --> 21%
+
+[14:28:28] Info: Buffering --> 20%
+
+[14:28:28] Info: Buffering --> 21%
+
+[14:28:28] Info: Buffering --> 22%
+
+[14:28:28] Info: Buffering --> 23%
+
+[14:28:28] Info: Buffering --> 22%
+
+[14:28:28] Info: Buffering --> 23%
+
+[14:28:28] Info: Buffering --> 24%
+
+[14:28:28] Info: Buffering --> 25%
+
+[14:28:28] Info: Buffering --> 24%
+
+[14:28:28] Info: Buffering --> 25%
+
+[14:28:28] Info: Buffering --> 26%
+
+[14:28:28] Info: Buffering --> 27%
+
+[14:28:28] Info: Buffering --> 28%
+
+[14:28:28] Info: Buffering --> 29%
+
+[14:28:28] Info: Buffering --> 28%
+
+[14:28:28] Info: Buffering --> 29%
+
+[14:28:28] Info: Buffering --> 30%
+
+[14:28:28] Info: Buffering --> 31%
+
+[14:28:28] Info: Buffering --> 32%
+
+[14:28:28] Info: Buffering --> 33%
+
+[14:28:28] Info: Buffering --> 32%
+
+[14:28:28] Info: Buffering --> 33%
+
+[14:28:28] Info: Buffering --> 34%
+
+[14:28:28] Info: Buffering --> 35%
+
+[14:28:28] Info: Buffering --> 34%
+
+[14:28:28] Info: Buffering --> 35%
+
+[14:28:28] Info: Buffering --> 36%
+
+[14:28:28] Info: Buffering --> 37%
+
+[14:28:28] Info: Buffering --> 38%
+
+[14:28:28] Info: Buffering --> 39%
+
+[14:28:28] Info: Buffering --> 40%
+
+[14:28:28] Info: Buffering --> 39%
+
+[14:28:28] Info: Buffering --> 40%
+
+[14:28:28] Info: Buffering --> 41%
+
+[14:28:28] Info: Buffering --> 42%
+
+[14:28:28] Info: Buffering --> 44%
+
+[14:28:28] Info: Buffering --> 43%
+
+[14:28:28] Info: Buffering --> 44%
+
+[14:28:28] Info: Buffering --> 45%
+
+[14:28:28] Info: Buffering --> 44%
+
+[14:28:28] Info: Buffering --> 45%
+
+[14:28:28] Info: Buffering --> 46%
+
+[14:28:28] Info: Buffering --> 47%
+
+[14:28:28] Info: Buffering --> 46%
+
+[14:28:28] Info: Buffering --> 47%
+
+[14:28:28] Info: Buffering --> 48%
+
+[14:28:28] Info: Buffering --> 47%
+
+[14:28:28] Info: Buffering --> 48%
+
+[14:28:29] Info: Buffering --> 49%
+
+[14:28:29] Info: Buffering --> 50%
+
+[14:28:29] Info: Buffering --> 49%
+
+[14:28:29] Info: Buffering --> 50%
+
+[14:28:29] Info: Buffering --> 51%
+
+[14:28:29] Info: Buffering --> 52%
+
+[14:28:29] Info: Buffering --> 51%
+
+[14:28:29] Info: Buffering --> 52%
+
+[14:28:29] Info: Buffering --> 51%
+
+[14:28:29] Info: Buffering --> 52%
+
+[14:28:29] Info: Buffering --> 53%
+
+[14:28:29] Info: Buffering --> 52%
+
+[14:28:29] Info: Buffering --> 51%
+
+[14:28:29] Info: Buffering --> 52%
+
+[14:28:29] Info: Buffering --> 53%
+
+[14:28:29] Info: Buffering --> 52%
+
+[14:28:29] Info: Buffering --> 53%
+
+[14:28:29] Info: Buffering --> 54%
+
+[14:28:29] Info: Buffering --> 55%
+
+[14:28:29] Info: Buffering --> 56%
+
+[14:28:29] Info: Buffering --> 55%
+
+[14:28:29] Info: Buffering --> 56%
+
+[14:28:29] Info: Buffering --> 57%
+
+[14:28:29] Info: Buffering --> 58%
+
+[14:28:29] Info: Buffering --> 59%
+
+[14:28:29] Info: Buffering --> 58%
+
+[14:28:29] Info: Buffering --> 59%
+
+[14:28:29] Info: Buffering --> 58%
+
+[14:28:29] Info: Buffering --> 59%
+
+[14:28:29] Info: Buffering --> 58%
+
+[14:28:29] Info: Buffering --> 59%
+
+[14:28:29] Info: Buffering --> 60%
+
+[14:28:29] Info: Buffering --> 61%
+
+[14:28:29] Info: Buffering --> 60%
+
+[14:28:29] Info: Buffering --> 61%
+
+[14:28:29] Info: Buffering --> 62%
+
+[14:28:29] Info: Buffering --> 61%
+
+[14:28:29] Info: Buffering --> 62%
+
+[14:28:29] Info: Buffering --> 61%
+
+[14:28:29] Info: Buffering --> 62%
+
+[14:28:29] Info: Buffering --> 63%
+
+[14:28:29] Info: Buffering --> 62%
+
+[14:28:29] Info: Buffering --> 63%
+
+[14:28:29] Info: Buffering --> 64%
+
+[14:28:29] Info: Buffering --> 63%
+
+[14:28:29] Info: Buffering --> 64%
+
+[14:28:29] Info: Buffering --> 65%
+
+[14:28:29] Info: Buffering --> 64%
+
+[14:28:30] Info: Buffering --> 63%
+
+[14:28:30] Info: Buffering --> 65%
+
+[14:28:30] Info: Buffering --> 66%
+
+[14:28:30] Info: Buffering --> 67%
+
+[14:28:30] Info: Buffering --> 68%
+
+[14:28:30] Info: Buffering --> 69%
+
+[14:28:30] Info: Buffering --> 68%
+
+[14:28:30] Info: Buffering --> 69%
+
+[14:28:30] Info: Buffering --> 70%
+
+[14:28:30] Info: Buffering --> 69%
+
+[14:28:30] Info: Buffering --> 70%
+
+[14:28:30] Info: Buffering --> 71%
+
+[14:28:30] Info: Buffering --> 70%
+
+[14:28:30] Info: Buffering --> 71%
+
+[14:28:30] Info: Buffering --> 72%
+
+[14:28:30] Info: Buffering --> 73%
+
+[14:28:30] Info: Buffering --> 72%
+
+[14:28:30] Info: Buffering --> 73%
+
+[14:28:30] Info: Buffering --> 74%
+
+[14:28:30] Info: Buffering --> 75%
+
+[14:28:30] Info: Buffering --> 74%
+
+[14:28:30] Info: Buffering --> 75%
+
+[14:28:30] Info: Buffering --> 76%
+
+[14:28:30] Info: Buffering --> 77%
+
+[14:28:30] Info: Buffering --> 78%
+
+[14:28:30] Info: Buffering --> 80%
+
+[14:28:30] Info: Buffering --> 81%
+
+[14:28:30] Info: Buffering --> 82%
+
+[14:28:30] Info: Buffering --> 83%
+
+[14:28:30] Info: Buffering --> 84%
+
+[14:28:30] Info: Buffering --> 85%
+
+[14:28:30] Info: Buffering --> 86%
+
+[14:28:30] Info: Buffering --> 87%
+
+[14:28:30] Info: Buffering --> 88%
+
+[14:28:30] Info: Buffering --> 89%
+
+[14:28:30] Info: Buffering --> 90%
+
+[14:28:30] Info: Buffering --> 89%
+
+[14:28:30] Info: Buffering --> 90%
+
+[14:28:30] Info: Buffering --> 91%
+
+[14:28:30] Info: Buffering --> 92%
+
+[14:28:30] Info: Buffering --> 91%
+
+[14:28:30] Info: Buffering --> 92%
+
+[14:28:30] Info: Buffering --> 93%
+
+[14:28:30] Info: Buffering --> 92%
+
+[14:28:30] Info: Buffering --> 90%
+
+[14:28:30] Info: Buffering --> 89%
+
+[14:28:30] Info: Buffering --> 88%
+
+[14:28:30] Info: Buffering --> 89%
+
+[14:28:30] Info: Buffering --> 88%
+
+[14:28:30] Info: Buffering --> 89%
+
+[14:28:30] Info: Buffering --> 88%
+
+[14:28:30] Info: Buffering --> 89%
+
+[14:28:31] Info: Buffering --> 90%
+
+[14:28:31] Info: Buffering --> 89%
+
+[14:28:31] Info: Buffering --> 88%
+
+[14:28:31] Info: Buffering --> 89%
+
+[14:28:31] Info: Buffering --> 90%
+
+[14:28:31] Info: Buffering --> 91%
+
+[14:28:31] Info: Buffering --> 90%
+
+[14:28:31] Info: Buffering --> 91%
+
+[14:28:31] Info: Buffering --> 92%
+
+[14:28:31] Info: Buffering --> 93%
+
+[14:28:31] Info: Buffering --> 92%
+
+[14:28:31] Info: Buffering --> 93%
+
+[14:28:31] Info: Buffering --> 94%
+
+[14:28:31] Info: Buffering --> 93%
+
+[14:28:31] Info: Buffering --> 94%
+
+[14:28:31] Info: Buffering --> 95%
+
+[14:28:31] Info: Buffering --> 94%
+
+[14:28:31] Info: Buffering --> 95%
+
+[14:28:31] Info: Buffering --> 94%
+
+[14:28:31] Info: Buffering --> 95%
+
+[14:28:31] Info: Buffering --> 96%
+
+[14:28:31] Info: Buffering --> 97%
+
+[14:28:31] Info: Buffering --> 95%
+
+[14:28:31] Info: Buffering --> 96%
+
+[14:28:31] Info: Buffering --> 97%
+
+[14:28:31] Info: Buffering --> 98%
+
+[14:28:31] Info: Buffering --> 99%
+
+[14:28:31] Info: Buffering --> 98%
+
+[14:28:31] Info: Buffering --> 99%
+
+[14:28:31] Info: Buffering --> 100%
 

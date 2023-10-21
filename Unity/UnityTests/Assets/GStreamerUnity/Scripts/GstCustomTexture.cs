@@ -83,12 +83,14 @@ public class GstCustomTexture : GstBaseTexture {
 
 	void OnGUI()
 	{
+	
+	/*
 		// This function should do input injection (if enabled), and drawing.
 		if (_player == null)
 			return;
 
 		Event e = Event.current;
-/*
+
 		switch (e.type) {
 		case EventType.Repaint:	
 			{
@@ -108,7 +110,7 @@ public class GstCustomTexture : GstBaseTexture {
 				break;	
 			}
 		}
-*/
+	*/
 	}
 
 
@@ -149,7 +151,7 @@ public class GstCustomTexture : GstBaseTexture {
 	
 	// Use this for initialization
 	IEnumerator Start () {
-	
+		//yield return null;
 		yield return StartCoroutine("CallPluginAtEndOfFrames");
 	}
 

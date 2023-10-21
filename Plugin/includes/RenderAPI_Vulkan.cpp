@@ -733,7 +733,6 @@ void RenderAPI_Vulkan::EndModifyTexture(void* textureHandle, int textureWidth, i
   
     memcpy(m_TextureStagingBuffer.mapped, dataPtr, sizetocopy);
 
-
     VkBufferImageCopy region;
     region.bufferImageHeight = 0;
     region.bufferRowLength = 0;
@@ -750,6 +749,7 @@ void RenderAPI_Vulkan::EndModifyTexture(void* textureHandle, int textureWidth, i
     region.imageSubresource.mipLevel = 0;
     vkCmdCopyBufferToImage(recordingState.commandBuffer, m_TextureStagingBuffer.buffer, image.image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
 
+    GarbageCollect();
     
 }
 
