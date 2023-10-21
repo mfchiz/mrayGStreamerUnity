@@ -13,3 +13,13 @@
 		#include <OpenGL/OpenGL.h>
 	#endif
 #endif
+#if SUPPORT_OPENGL
+	#if UNITY_WIN
+		#include <gl/GL.h>
+	#else
+		#include <OpenGL/OpenGL.h>
+	#endif
+#endif
+#if SUPPORT_VULKAN
+	#include <vulkan/vulkan.h>
+#endif

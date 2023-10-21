@@ -88,7 +88,7 @@ public class GstCustomTexture : GstBaseTexture {
 			return;
 
 		Event e = Event.current;
-
+/*
 		switch (e.type) {
 		case EventType.Repaint:	
 			{
@@ -103,15 +103,56 @@ public class GstCustomTexture : GstBaseTexture {
 					_imageGrabed = false;
 					OnFrameCaptured(0);
 					_triggerOnFrameBlitted (0);
+					
 				}
 				break;	
 			}
 		}
+*/
 	}
 
-	// Use this for initialization
-	void Start () {
+
+	private void BlitIfNeeded() 
+	{
+	
+		if (_player == null)
+		return;
+
+		if(_imageGrabed){
+		
+			Debug.Log("y="+_grabbedSize.y+" x="+_grabbedSize.x+" comps="+_grabbedComponents);
+			
+			Resize ((int)_grabbedSize.x,(int) _grabbedSize.y,_grabbedComponents,0);
+			if (m_Texture[0] == null)
+				Debug.LogError ("The GstTexture does not have a texture assigned and will not paint.");
+			else {
+				_player.BlitTexture (m_Texture [0].GetNativeTexturePtr (), m_Texture [0].width, m_Texture [0].height);
+			}
+			_imageGrabed = false;
+			OnFrameCaptured(0);
+			_triggerOnFrameBlitted (0);
+			
+		}	
 	}
+
+	private IEnumerator CallPluginAtEndOfFrames()
+	{
+		while (true) {
+
+			// Wait until all frame rendering is done
+			yield return new WaitForEndOfFrame();
+
+			BlitIfNeeded(); 
+		}
+	}
+	
+	
+	// Use this for initialization
+	IEnumerator Start () {
+	
+		yield return StartCoroutine("CallPluginAtEndOfFrames");
+	}
+
 
 	// Update is called once per frame
 	void Update () {

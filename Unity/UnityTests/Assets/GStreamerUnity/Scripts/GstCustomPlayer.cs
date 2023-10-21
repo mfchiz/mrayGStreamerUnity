@@ -6,8 +6,6 @@ using System;
 public class GstCustomPlayer : IGstPlayer
 {
 
-
-
     class _AudioWrapper : IGstAudioPlayer
     {
         GstCustomPlayer _owner;

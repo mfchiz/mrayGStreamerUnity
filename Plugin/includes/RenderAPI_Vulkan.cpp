@@ -1,5 +1,6 @@
 #include "RenderAPI.h"
 #include "PlatformBase.h"
+#include "UnityHelpers.h"
 
 #if SUPPORT_VULKAN
 
@@ -7,6 +8,7 @@
 #include <map>
 #include <vector>
 #include <math.h>
+
 
 // This plugin does not link to the Vulkan loader, easier to support multiple APIs and systems that don't have Vulkan support
 #define VK_NO_PROTOTYPES
@@ -132,7 +134,16 @@ static PFN_vkGetInstanceProcAddr UNITY_INTERFACE_API InterceptVulkanInitializati
 
 extern "C" void RenderAPI_Vulkan_OnPluginLoad(IUnityInterfaces* interfaces)
 {
-    interfaces->Get<IUnityGraphicsVulkan>()->InterceptInitialization(InterceptVulkanInitialization, NULL);
+    if (IUnityGraphicsVulkanV2* vulkanInterface = interfaces->Get<IUnityGraphicsVulkanV2>())
+    {
+        vulkanInterface->AddInterceptInitialization(InterceptVulkanInitialization, NULL, 0);
+           
+    }
+    else if (IUnityGraphicsVulkan* vulkanInterface = interfaces->Get<IUnityGraphicsVulkan>())
+    {
+        vulkanInterface->InterceptInitialization(InterceptVulkanInitialization, NULL);
+        
+	}
 }
 
 struct VulkanBuffer
@@ -442,7 +453,7 @@ public:
     virtual bool GetUsesReverseZ() { return true; }
     virtual void DrawSimpleTriangles(const float worldMatrix[16], int triangleCount, const void* verticesFloat3Byte4);
     virtual void* BeginModifyTexture(void* textureHandle, int textureWidth, int textureHeight, int* outRowPitch);
-    virtual void EndModifyTexture(void* textureHandle, int textureWidth, int textureHeight, int rowPitch, void* dataPtr);
+    virtual void EndModifyTexture(void* textureHandle, int textureWidth, int textureHeight, int components,int rowPitch, void* dataPtr);
     virtual void* BeginModifyVertexBuffer(void* bufferHandle, size_t* outBufferSize);
     virtual void EndModifyVertexBuffer(void* bufferHandle);
 
@@ -589,7 +600,7 @@ bool RenderAPI_Vulkan::CreateVulkanBuffer(size_t sizeInBytes, VulkanBuffer* buff
     buffer->sizeInBytes = sizeInBytes;
     buffer->deviceMemoryFlags = physicalDeviceProperties.memoryTypes[memoryTypeIndex].propertyFlags;
     buffer->deviceMemorySize = memoryAllocateInfo.allocationSize;
-
+  		
     return true;
 }
 
@@ -694,14 +705,17 @@ void* RenderAPI_Vulkan::BeginModifyTexture(void* textureHandle, int textureWidth
 
     SafeDestroy(recordingState.currentFrameNumber, m_TextureStagingBuffer);
     m_TextureStagingBuffer = VulkanBuffer();
+      	
     if (!CreateVulkanBuffer(stagingBufferSizeRequirements, &m_TextureStagingBuffer, VK_BUFFER_USAGE_TRANSFER_SRC_BIT))
         return NULL;
 
     return m_TextureStagingBuffer.mapped;
+
 }
 
-void RenderAPI_Vulkan::EndModifyTexture(void* textureHandle, int textureWidth, int textureHeight, int rowPitch, void* dataPtr)
+void RenderAPI_Vulkan::EndModifyTexture(void* textureHandle, int textureWidth, int textureHeight, int components,int rowPitch, void* dataPtr)
 {
+
     // cannot do resource uploads inside renderpass
     m_UnityVulkan->EnsureOutsideRenderPass();
 
@@ -714,13 +728,19 @@ void RenderAPI_Vulkan::EndModifyTexture(void* textureHandle, int textureWidth, i
     if (!m_UnityVulkan->CommandRecordingState(&recordingState, kUnityVulkanGraphicsQueueAccess_DontCare))
         return;
 
+
+    const size_t sizetocopy = textureWidth * textureHeight;
+  
+    memcpy(m_TextureStagingBuffer.mapped, dataPtr, sizetocopy);
+
+
     VkBufferImageCopy region;
     region.bufferImageHeight = 0;
     region.bufferRowLength = 0;
     region.bufferOffset = 0;
     region.imageOffset.x = 0;
     region.imageOffset.y = 0;
-    region.imageOffset.z = 0;
+    region.imageOffset.z = 0;   
     region.imageExtent.width = textureWidth;
     region.imageExtent.height = textureHeight;
     region.imageExtent.depth = 1;
@@ -729,10 +749,14 @@ void RenderAPI_Vulkan::EndModifyTexture(void* textureHandle, int textureWidth, i
     region.imageSubresource.layerCount = 1;
     region.imageSubresource.mipLevel = 0;
     vkCmdCopyBufferToImage(recordingState.commandBuffer, m_TextureStagingBuffer.buffer, image.image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
+
+    
 }
 
 void* RenderAPI_Vulkan::BeginModifyVertexBuffer(void* bufferHandle, size_t* outBufferSize)
 {
+
+     
     UnityVulkanRecordingState recordingState;
     if (!m_UnityVulkan->CommandRecordingState(&recordingState, kUnityVulkanGraphicsQueueAccess_DontCare))
         return NULL;
@@ -746,23 +770,19 @@ void* RenderAPI_Vulkan::BeginModifyVertexBuffer(void* bufferHandle, size_t* outB
     if (!bufferInfo.memory.mapped)
         return NULL;
 
-    UnityVulkanBuffer src;
-    if (!m_UnityVulkan->AccessBuffer(bufferHandle, VK_PIPELINE_STAGE_HOST_BIT, VK_ACCESS_HOST_READ_BIT, kUnityVulkanResourceAccess_PipelineBarrier, &src))
+    // We don't want to start modifying a resource that might still be used by the GPU,
+    // so we can use kUnityVulkanResourceAccess_Recreate to recreate it while still keeping the old one alive if it's in use.
+    UnityVulkanBuffer recreatedBuffer;
+    if (!m_UnityVulkan->AccessBuffer(bufferHandle, VK_PIPELINE_STAGE_HOST_BIT, VK_ACCESS_HOST_WRITE_BIT, kUnityVulkanResourceAccess_Recreate, &recreatedBuffer))
         return NULL;
 
-    UnityVulkanBuffer dst;
-    if (!m_UnityVulkan->AccessBuffer(bufferHandle, VK_PIPELINE_STAGE_HOST_BIT, VK_ACCESS_HOST_WRITE_BIT, kUnityVulkanResourceAccess_PipelineBarrier, &dst))
-        return NULL;
-        
-    // read might be slow because it's not cached
-    // can't use GPU transfer here because is not marked as transfer src
-    memcpy(dst.memory.mapped, src.memory.mapped, bufferInfo.sizeInBytes);
-
-    return dst.memory.mapped;
+    // We don't care about the previous contents of this vertex buffer so we can return the mapped pointer to the new resource memory 
+    return recreatedBuffer.memory.mapped;
 }
 
 void RenderAPI_Vulkan::EndModifyVertexBuffer(void* bufferHandle)
 {
+     
     // cannot do resource uploads inside renderpass, but we know that the texture modification is done first and that already ends the renderpass
     // m_UnityVulkan->EnsureOutsideRenderPass(); 
 

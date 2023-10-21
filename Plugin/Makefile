@@ -393,6 +393,30 @@ includes/RenderAPI_OpenGLCoreES.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GStreamerUnityPlugin.dir/build.make CMakeFiles/GStreamerUnityPlugin.dir/includes/RenderAPI_OpenGLCoreES.cpp.s
 .PHONY : includes/RenderAPI_OpenGLCoreES.cpp.s
 
+includes/RenderAPI_Vulkan.o: includes/RenderAPI_Vulkan.cpp.o
+.PHONY : includes/RenderAPI_Vulkan.o
+
+# target to build an object file
+includes/RenderAPI_Vulkan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GStreamerUnityPlugin.dir/build.make CMakeFiles/GStreamerUnityPlugin.dir/includes/RenderAPI_Vulkan.cpp.o
+.PHONY : includes/RenderAPI_Vulkan.cpp.o
+
+includes/RenderAPI_Vulkan.i: includes/RenderAPI_Vulkan.cpp.i
+.PHONY : includes/RenderAPI_Vulkan.i
+
+# target to preprocess a source file
+includes/RenderAPI_Vulkan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GStreamerUnityPlugin.dir/build.make CMakeFiles/GStreamerUnityPlugin.dir/includes/RenderAPI_Vulkan.cpp.i
+.PHONY : includes/RenderAPI_Vulkan.cpp.i
+
+includes/RenderAPI_Vulkan.s: includes/RenderAPI_Vulkan.cpp.s
+.PHONY : includes/RenderAPI_Vulkan.s
+
+# target to generate assembly for a file
+includes/RenderAPI_Vulkan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GStreamerUnityPlugin.dir/build.make CMakeFiles/GStreamerUnityPlugin.dir/includes/RenderAPI_Vulkan.cpp.s
+.PHONY : includes/RenderAPI_Vulkan.cpp.s
+
 includes/UnityGraphicsDevice.o: includes/UnityGraphicsDevice.cpp.o
 .PHONY : includes/UnityGraphicsDevice.o
 
@@ -1251,6 +1275,9 @@ help:
 	@echo "... includes/RenderAPI_OpenGLCoreES.o"
 	@echo "... includes/RenderAPI_OpenGLCoreES.i"
 	@echo "... includes/RenderAPI_OpenGLCoreES.s"
+	@echo "... includes/RenderAPI_Vulkan.o"
+	@echo "... includes/RenderAPI_Vulkan.i"
+	@echo "... includes/RenderAPI_Vulkan.s"
 	@echo "... includes/UnityGraphicsDevice.o"
 	@echo "... includes/UnityGraphicsDevice.i"
 	@echo "... includes/UnityGraphicsDevice.s"

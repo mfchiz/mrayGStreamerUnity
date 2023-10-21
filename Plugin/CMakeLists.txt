@@ -8,6 +8,7 @@ endif(POLICY CMP0072)
 
 find_package(PkgConfig REQUIRED)
 find_package(OpenGL REQUIRED)
+find_package(Vulkan REQUIRED)
 
 
 add_compile_definitions(USE_UNITY_GRABBER)
@@ -97,7 +98,7 @@ set (SOURCE
 
 set(CMAKE_C_FLAGS "-x objective-c")
 set(CMAKE_CXX_FLAGS "-x objective-c++")
-set(CMAKE_EXE_LINKER_FLAGS "-framework OpenGL -framework CoreFoundation")
+set(CMAKE_EXE_LINKER_FLAGS "-framework OpenGL -framework CoreFoundation -framework Vulkan")
 
 elseif(WIN32)
 set (SOURCE 
@@ -124,6 +125,7 @@ set (SOURCE
         "sources/GstAppAudioPlayer.cpp"
         "sources/UnityAudioGrabber.cpp"
         "includes/RenderAPI_D3D11.cpp"
+        "includes/RenderAPI_Vulkan.cpp"
 )
 endif()
 
@@ -146,3 +148,4 @@ endif()
 
 target_link_libraries("${PROJECT_NAME}" ${GSTLIBS_LIBRARIES})
 target_link_libraries("${PROJECT_NAME}" ${OPENGL_LIBRARIES})
+target_link_libraries("${PROJECT_NAME}" ${VULKAN_LIBRARIES})

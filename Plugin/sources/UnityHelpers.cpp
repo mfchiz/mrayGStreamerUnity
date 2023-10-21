@@ -182,12 +182,14 @@ void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHe
         *pitch = _UnityTextureWidth;
         
         *data = ifo->imageData;
+           
 	}
 	else if (ifo->format == video::EPixel_LUMINANCE16)
 	{
 		*comps = 1;
 		*pitch = _UnityTextureWidth;
 		*data = ifo->imageData;
+	        
 	}
     else
     {
@@ -203,6 +205,7 @@ void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHe
         *data = ifo->tmpBuffer->imageData;
         *comps=4;
         CopyToTexture(ifo, (uchar*)*data, video::EPixel_R8G8B8A8);//ifo->format);
+        	    
     }
 }
 
@@ -211,10 +214,9 @@ void BlitImage(const ImageInfo* ifo, void* _TextureNativePtr, int _UnityTextureW
     
     if (!ifo || !_TextureNativePtr)
         return;
-    
+        
     if (ifo->tmpBuffer == 0)
-        ((video::ImageInfo*)ifo)->tmpBuffer = new ImageInfo();
-    
+        ((video::ImageInfo*)ifo)->tmpBuffer = new ImageInfo();      
     
     uchar* data = 0;
     int pitch = 0;
@@ -272,9 +274,10 @@ void BlitImage(const ImageInfo* ifo, void* _TextureNativePtr, int _UnityTextureW
 #endif
     
         if (_TextureNativePtr)
-        {
+        {          
+             
             CheckData(ifo,_UnityTextureWidth,_UnityTextureHeight,&data,&pitch,&comps);
-            
+       
             GetRenderer()->BeginModifyTexture(_TextureNativePtr, _UnityTextureWidth, _UnityTextureHeight, &pitch);
             GetRenderer()->EndModifyTexture(_TextureNativePtr, _UnityTextureWidth, _UnityTextureHeight,comps, pitch, data);
             

@@ -129,6 +129,9 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 	protected virtual void Update () {
 
 		if (_newFrame)
+		{
 			_processNewFrame ();
+		}
+	
 	}
 }

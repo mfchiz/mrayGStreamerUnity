@@ -36,8 +36,8 @@ public class FileVideoPlayer : BaseVideoPlayer
 	// Use this for initialization
 	protected override string _GetPipeline()
 	{
-		if (!VideoPath.Contains(":") || !VideoPath.StartsWith("/"))
-			VideoPath = (Application.dataPath + "/" + VideoPath).Replace('\\', '/');
+		//if (!VideoPath.Contains(":") || !VideoPath.StartsWith("/"))
+		//	VideoPath = (Application.dataPath + "/" + VideoPath).Replace('\\', '/');
 
 		string mux = "qtdemux";
 
