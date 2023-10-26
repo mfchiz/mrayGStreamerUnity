@@ -81,39 +81,6 @@ public class GstCustomTexture : GstBaseTexture {
 		}
 	}
 
-	void OnGUI()
-	{
-	
-	/*
-		// This function should do input injection (if enabled), and drawing.
-		if (_player == null)
-			return;
-
-		Event e = Event.current;
-
-		switch (e.type) {
-		case EventType.Repaint:	
-			{
-				//if (_player.GrabFrame (out sz,out components)) {
-				if(_imageGrabed){
-					Resize ((int)_grabbedSize.x,(int) _grabbedSize.y,_grabbedComponents,0);
-					if (m_Texture[0] == null)
-						Debug.LogError ("The GstTexture does not have a texture assigned and will not paint.");
-					else {
-						_player.BlitTexture (m_Texture [0].GetNativeTexturePtr (), m_Texture [0].width, m_Texture [0].height);
-					}
-					_imageGrabed = false;
-					OnFrameCaptured(0);
-					_triggerOnFrameBlitted (0);
-					
-				}
-				break;	
-			}
-		}
-	*/
-	}
-
-
 	private void BlitIfNeeded() 
 	{
 	
@@ -122,7 +89,7 @@ public class GstCustomTexture : GstBaseTexture {
 
 		if(_imageGrabed){
 		
-			Debug.Log("y="+_grabbedSize.y+" x="+_grabbedSize.x+" comps="+_grabbedComponents);
+			Debug.Log("_grabbedComponents"+_grabbedComponents);
 			
 			Resize ((int)_grabbedSize.x,(int) _grabbedSize.y,_grabbedComponents,0);
 			if (m_Texture[0] == null)
@@ -151,7 +118,7 @@ public class GstCustomTexture : GstBaseTexture {
 	
 	// Use this for initialization
 	IEnumerator Start () {
-		//yield return null;
+
 		yield return StartCoroutine("CallPluginAtEndOfFrames");
 	}
 

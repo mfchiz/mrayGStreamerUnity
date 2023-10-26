@@ -129,13 +129,17 @@ public class GstCustomPlayer : IGstPlayer
     public bool GrabFrame(out Vector2 frameSize, out int components)
     {
         int w = 0, h = 0, c = 0;
-        if (GStLib.mray_gst_playerGrabFrame(m_Instance, ref w, ref h, ref c, 0))
+        
+        if(!GStLib.isUnloaded && m_Instance != IntPtr.Zero)
         {
-            components = c;
-            frameSize.x = w;
-            frameSize.y = h;
-            return true;
-        }
+		    if (GStLib.mray_gst_playerGrabFrame(m_Instance, ref w, ref h, ref c, 0))
+		    {
+		        components = c;
+		        frameSize.x = w;
+		        frameSize.y = h;
+		        return true;
+		    }
+		}
         components = 3;
         frameSize.x = frameSize.y = 0;
         return false;

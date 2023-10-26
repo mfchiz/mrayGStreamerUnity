@@ -15,7 +15,7 @@ public class CustomPipelinePlayer : BaseVideoPlayer {
 	// Use this for initialization
 	protected override string _GetPipeline()
 	{
-		string P = pipeline + " ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink";
+		string P = pipeline + " ! video/x-raw,format=RGBA ! videoconvert ! appsink name=videoSink";
 		//string P = pipeline + " video-sink=\"videoconvert ! video/x-raw,format=I420 ! appsink name=videoSink\""; 
 		
 		return P;
@@ -36,7 +36,7 @@ public class CustomPipelinePlayer : BaseVideoPlayer {
 				
 			print("yo seek p="+p);
 			
-			InternalTexture.Pause();
+			//InternalTexture.Pause();
 			InternalTexture.Player.Seek(p * 1000);
 		}
 		if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -45,7 +45,7 @@ public class CustomPipelinePlayer : BaseVideoPlayer {
 			if (p >= Duration)
 				p = Duration;
 						
-			InternalTexture.Pause();			
+			//InternalTexture.Pause();			
 			InternalTexture.Player.Seek(p * 1000);
 		}
 		if (Input.GetKeyDown(KeyCode.S))

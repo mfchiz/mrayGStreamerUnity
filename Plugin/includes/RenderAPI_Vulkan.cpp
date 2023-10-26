@@ -703,8 +703,11 @@ void* RenderAPI_Vulkan::BeginModifyTexture(void* textureHandle, int textureWidth
     if (!m_UnityVulkan->CommandRecordingState(&recordingState, kUnityVulkanGraphicsQueueAccess_DontCare))
         return NULL;
 
-    SafeDestroy(recordingState.currentFrameNumber, m_TextureStagingBuffer);
+    //SafeDestroy(recordingState.currentFrameNumber, m_TextureStagingBuffer);
+    ImmediateDestroyVulkanBuffer(m_TextureStagingBuffer);
+    
     m_TextureStagingBuffer = VulkanBuffer();
+      	
       	
     if (!CreateVulkanBuffer(stagingBufferSizeRequirements, &m_TextureStagingBuffer, VK_BUFFER_USAGE_TRANSFER_SRC_BIT))
         return NULL;
@@ -728,8 +731,7 @@ void RenderAPI_Vulkan::EndModifyTexture(void* textureHandle, int textureWidth, i
     if (!m_UnityVulkan->CommandRecordingState(&recordingState, kUnityVulkanGraphicsQueueAccess_DontCare))
         return;
 
-
-    const size_t sizetocopy = textureWidth * textureHeight;
+    const size_t sizetocopy = textureWidth * textureHeight * components;
   
     memcpy(m_TextureStagingBuffer.mapped, dataPtr, sizetocopy);
 

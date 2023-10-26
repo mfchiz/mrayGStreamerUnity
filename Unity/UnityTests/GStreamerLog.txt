@@ -1,67 +1,867 @@
-[16:13:42] Info: Render API: 4
+[10:37:56] Info: Render API: 4
 
-[16:13:42] Info: Render API: 21
+[10:37:56] Info: Render API: 17
 
-[16:13:51] mray_gstreamer_initialize
-[16:13:51] Initializing GStreamer Engine
-[16:13:51] Initializing GStreamer Engine - Done
-[16:13:51] Initializing GStreamer
-[16:13:51] GStreamerCore - Registering Elements!
-[16:13:51] GStreamerCore - GStreamer inited
-[16:13:51] Initializing GStreamer - Done
-[16:13:51] Entering main loop
-[16:13:51] Info: Creating Pipeline: filesrc location="/home/matt/projects/GStreamerUnity/Unity/UnityTests/Assets/.videos/big_buck_bunny.mp4" ! qtdemux name=demux  demux.video_0 ! queue ! decodebin ! videoconvert ! video/x-raw,format=I420 !  appsink name=videoSink sync=true
+[10:38:07] mray_gstreamer_initialize
+[10:38:07] Initializing GStreamer Engine
+[10:38:07] Initializing GStreamer Engine - Done
+[10:38:07] Initializing GStreamer
+[10:38:08] GStreamerCore - Registering Elements!
+[10:38:08] GStreamerCore - GStreamer inited
+[10:38:08] Initializing GStreamer - Done
+[10:38:08] Entering main loop
+[10:38:08] Info: Creating Pipeline:  uridecodebin3 download=true buffer-duration=18446744073709551615  use-buffering=true uri=https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8 ! videoconvert  ! video/x-raw,format=RGBA ! videoconvert ! appsink name=videoSink
 
-[16:13:51] Info: : GstPipelineHandler::CreatePipeline 
+[10:38:08] Info: : GstPipelineHandler::CreatePipeline 
 
-[16:13:51] Info: : Pausing
+[10:38:08] Info: : Pausing
 
-[16:13:51] Info: : Playing
+[10:38:08] Info: : Playing
 
-[16:13:51] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[10:38:08] Info: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ‘gsettings-backend’
 
-[16:13:51] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[10:38:08] Info: _g_io_module_get_default: Found default implementation libproxy (GLibproxyResolver) for ‘gio-proxy-resolver’
 
-[16:13:51] Info: : Playing
+[10:38:08] Info: GSocketClient: Starting new address enumeration
 
-[16:13:51] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[10:38:08] Info: IPv6 DNS error: Error resolving “test-streams.mux.dev”: Name or service not known
 
-[16:14:51] Info: : GstPipelineHandler::HandleMessage(): Received EOS message 
+[10:38:08] Info: GSocketClient: Address enumeration succeeded
 
-[16:14:51] Info: : Restarting Pipeline 
+[10:38:08] Info: GSocketClient: Starting TCP connection attempt
 
-[16:14:51] Info: : Done Restarting Pipeline 
+[10:38:08] Info: GSocketClient: TCP connection successful
 
-[16:14:51] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[10:38:08] Info: GSocketClient: Starting application layer connection
 
-[16:14:51] Warning: : GstPipelineHandler::HandleMessage(): error in module demux  reported: Internal data stream error. - ../gst/isomp4/qtdemux.c(6749): gst_qtdemux_loop (): /GstPipeline:pipeline0/GstQTDemux:demux:
-streaming stopped, reason not-linked (-1)
+[10:38:08] Info: GSocketClient: Connection successful!
 
-[17:10:18] mray_gstreamer_initialize
-[17:10:18] Info: Creating Pipeline: filesrc location="/home/matt/projects/GStreamerUnity/Unity/UnityTests/Assets/.videos/big_buck_bunny.mp4" ! qtdemux name=demux  demux.video_0 ! queue ! decodebin ! videoconvert ! video/x-raw,format=I420 !  appsink name=videoSink sync=true
+[10:38:08] Info: _g_io_module_get_default: Found default implementation gnutls (GTlsBackendGnutls) for ‘gio-tls-backend’
 
-[17:10:18] Info: : GstPipelineHandler::CreatePipeline 
+[10:38:08] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
 
-[17:10:18] Info: : Pausing
+[10:38:08] Info: Buffering --> 0%
 
-[17:10:18] Info: : Playing
+[10:38:08] Info: Buffering --> 1%
 
-[17:10:19] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[10:38:08] Info: Buffering --> 0%
 
-[17:10:19] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[10:38:08] Info: Buffering --> 3%
 
-[17:10:19] Info: : Playing
+[10:38:08] Info: Buffering --> 0%
 
-[17:10:19] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[10:38:08] Info: Buffering --> 3%
 
-[17:11:18] Info: : GstPipelineHandler::HandleMessage(): Received EOS message 
+[10:38:08] Info: Buffering --> 0%
 
-[17:11:18] Info: : Restarting Pipeline 
+[10:38:08] Info: Buffering --> 3%
 
-[17:11:18] Info: : Done Restarting Pipeline 
+[10:38:08] Info: Buffering --> 0%
 
-[17:11:18] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[10:38:08] Info: Buffering --> 1%
 
-[17:11:18] Warning: : GstPipelineHandler::HandleMessage(): error in module demux  reported: Internal data stream error. - ../gst/isomp4/qtdemux.c(6749): gst_qtdemux_loop (): /GstPipeline:pipeline1/GstQTDemux:demux:
+[10:38:08] Info: Buffering --> 0%
+
+[10:38:08] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+
+[10:38:08] Info: : Playing
+
+[10:38:08] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 3%
+
+[10:38:08] Info: Buffering --> 6%
+
+[10:38:08] Info: Buffering --> 10%
+
+[10:38:08] Info: Buffering --> 12%
+
+[10:38:08] Info: Buffering --> 15%
+
+[10:38:08] Info: Buffering --> 19%
+
+[10:38:08] Info: Buffering --> 22%
+
+[10:38:08] Info: Buffering --> 25%
+
+[10:38:08] Info: Buffering --> 29%
+
+[10:38:08] Info: Buffering --> 32%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 34%
+
+[10:38:08] Info: Buffering --> 38%
+
+[10:38:08] Info: Buffering --> 41%
+
+[10:38:08] Info: Buffering --> 44%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 46%
+
+[10:38:08] Info: Buffering --> 51%
+
+[10:38:08] Info: Buffering --> 54%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 58%
+
+[10:38:08] Info: Buffering --> 59%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 63%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 66%
+
+[10:38:08] Info: Buffering --> 70%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 73%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 77%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 82%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 85%
+
+[10:38:08] Info: Buffering --> 89%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 92%
+
+[10:38:08] Info: Buffering --> 94%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: Buffering --> 97%
+
+[10:38:08] Info: Buffering --> 100%
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:08] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:09] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:10] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:11] Info: EPixel_R8G8B8A8
+
+[10:38:12] Info: EPixel_R8G8B8A8
+
+[10:38:12] Info: EPixel_R8G8B8A8
+
+[10:38:12] Info: EPixel_R8G8B8A8
+
+[10:38:12] Info: EPixel_R8G8B8A8
+
+[10:38:12] Info: EPixel_R8G8B8A8
+
+[10:38:21] Info: Buffering --> 1%
+
+[10:38:21] Info: Buffering --> 0%
+
+[10:38:21] Info: Buffering --> 1%
+
+[10:38:21] Info: Buffering --> 2%
+
+[10:38:21] Info: Buffering --> 1%
+
+[10:38:21] Info: Buffering --> 0%
+
+[10:38:21] Info: Buffering --> 1%
+
+[10:38:21] Info: Buffering --> 0%
+
+[10:38:21] Info: Buffering --> 1%
+
+[10:38:21] Info: Buffering --> 0%
+
+[10:38:22] Info: Buffering --> 1%
+
+[10:38:22] Info: Buffering --> 0%
+
+[10:38:22] Info: Buffering --> 1%
+
+[10:38:22] Info: Buffering --> 0%
+
+[10:38:23] Info: Buffering --> 1%
+
+[10:38:23] Info: Buffering --> 0%
+
+[10:38:26] Info: Buffering --> 1%
+
+[10:38:26] Info: Buffering --> 2%
+
+[10:38:26] Info: Buffering --> 1%
+
+[10:38:26] Info: Buffering --> 2%
+
+[10:38:26] Info: Buffering --> 3%
+
+[10:38:26] Info: Buffering --> 4%
+
+[10:38:26] Info: Buffering --> 3%
+
+[10:38:26] Info: Buffering --> 4%
+
+[10:38:26] Info: Buffering --> 5%
+
+[10:38:26] Info: Buffering --> 6%
+
+[10:38:26] Info: Buffering --> 5%
+
+[10:38:26] Info: Buffering --> 6%
+
+[10:38:26] Info: Buffering --> 7%
+
+[10:38:26] Info: Buffering --> 8%
+
+[10:38:26] Info: Buffering --> 9%
+
+[10:38:26] Info: Buffering --> 8%
+
+[10:38:26] Info: Buffering --> 9%
+
+[10:38:26] Info: Buffering --> 10%
+
+[10:38:26] Info: Buffering --> 9%
+
+[10:38:26] Info: Buffering --> 10%
+
+[10:38:26] Info: Buffering --> 11%
+
+[10:38:26] Info: Buffering --> 12%
+
+[10:38:26] Info: Buffering --> 13%
+
+[10:38:26] Info: Buffering --> 14%
+
+[10:38:26] Info: Buffering --> 15%
+
+[10:38:26] Info: Buffering --> 16%
+
+[10:38:26] Info: Buffering --> 17%
+
+[10:38:26] Info: Buffering --> 16%
+
+[10:38:26] Info: Buffering --> 17%
+
+[10:38:26] Info: Buffering --> 18%
+
+[10:38:26] Info: Buffering --> 19%
+
+[10:38:26] Info: Buffering --> 20%
+
+[10:38:26] Info: Buffering --> 21%
+
+[10:38:26] Info: Buffering --> 20%
+
+[10:38:26] Info: Buffering --> 21%
+
+[10:38:26] Info: Buffering --> 22%
+
+[10:38:26] Info: Buffering --> 23%
+
+[10:38:26] Info: Buffering --> 24%
+
+[10:38:26] Info: Buffering --> 25%
+
+[10:38:26] Info: Buffering --> 26%
+
+[10:38:26] Info: Buffering --> 27%
+
+[10:38:26] Info: Buffering --> 28%
+
+[10:38:26] Info: Buffering --> 29%
+
+[10:38:26] Info: Buffering --> 28%
+
+[10:38:26] Info: Buffering --> 29%
+
+[10:38:26] Info: Buffering --> 30%
+
+[10:38:26] Info: Buffering --> 31%
+
+[10:38:26] Info: Buffering --> 32%
+
+[10:38:26] Info: Buffering --> 33%
+
+[10:38:26] Info: Buffering --> 34%
+
+[10:38:26] Info: Buffering --> 33%
+
+[10:38:27] Info: Buffering --> 34%
+
+[10:38:27] Info: Buffering --> 35%
+
+[10:38:27] Info: Buffering --> 36%
+
+[10:38:27] Info: Buffering --> 35%
+
+[10:38:27] Info: Buffering --> 36%
+
+[10:38:27] Info: Buffering --> 37%
+
+[10:38:27] Info: Buffering --> 38%
+
+[10:38:27] Info: Buffering --> 39%
+
+[10:38:27] Info: Buffering --> 40%
+
+[10:38:27] Info: Buffering --> 39%
+
+[10:38:27] Info: Buffering --> 40%
+
+[10:38:27] Info: Buffering --> 41%
+
+[10:38:27] Info: Buffering --> 42%
+
+[10:38:27] Info: Buffering --> 43%
+
+[10:38:27] Info: Buffering --> 44%
+
+[10:38:27] Info: Buffering --> 45%
+
+[10:38:27] Info: Buffering --> 46%
+
+[10:38:27] Info: Buffering --> 47%
+
+[10:38:27] Info: Buffering --> 48%
+
+[10:38:27] Info: Buffering --> 49%
+
+[10:38:27] Info: Buffering --> 48%
+
+[10:38:27] Info: Buffering --> 49%
+
+[10:38:27] Info: Buffering --> 50%
+
+[10:38:27] Info: Buffering --> 51%
+
+[10:38:27] Info: Buffering --> 52%
+
+[10:38:27] Info: Buffering --> 53%
+
+[10:38:27] Info: Buffering --> 54%
+
+[10:38:27] Info: Buffering --> 55%
+
+[10:38:27] Info: Buffering --> 56%
+
+[10:38:27] Info: Buffering --> 57%
+
+[10:38:27] Info: Buffering --> 56%
+
+[10:38:27] Info: Buffering --> 57%
+
+[10:38:27] Info: Buffering --> 59%
+
+[10:38:27] Info: Buffering --> 60%
+
+[10:38:27] Info: Buffering --> 61%
+
+[10:38:27] Info: Buffering --> 62%
+
+[10:38:27] Info: Buffering --> 63%
+
+[10:38:27] Info: Buffering --> 64%
+
+[10:38:27] Info: Buffering --> 65%
+
+[10:38:27] Info: Buffering --> 66%
+
+[10:38:27] Info: Buffering --> 67%
+
+[10:38:27] Info: Buffering --> 68%
+
+[10:38:27] Info: Buffering --> 69%
+
+[10:38:27] Info: Buffering --> 70%
+
+[10:38:27] Info: Buffering --> 71%
+
+[10:38:27] Info: Buffering --> 72%
+
+[10:38:27] Info: Buffering --> 73%
+
+[10:38:27] Info: Buffering --> 74%
+
+[10:38:27] Info: Buffering --> 75%
+
+[10:38:27] Info: Buffering --> 76%
+
+[10:38:27] Info: Buffering --> 77%
+
+[10:38:27] Info: Buffering --> 78%
+
+[10:38:27] Info: Buffering --> 79%
+
+[10:38:27] Info: Buffering --> 80%
+
+[10:38:27] Info: Buffering --> 81%
+
+[10:38:27] Info: Buffering --> 82%
+
+[10:38:27] Info: Buffering --> 83%
+
+[10:38:27] Info: Buffering --> 84%
+
+[10:38:27] Info: Buffering --> 85%
+
+[10:38:27] Info: Buffering --> 86%
+
+[10:38:27] Info: Buffering --> 87%
+
+[10:38:27] Info: Buffering --> 89%
+
+[10:38:27] Info: Buffering --> 90%
+
+[10:38:27] Info: Buffering --> 91%
+
+[10:38:27] Info: Buffering --> 92%
+
+[10:38:27] Info: Buffering --> 93%
+
+[10:38:27] Info: Buffering --> 94%
+
+[10:38:27] Info: Buffering --> 95%
+
+[10:38:27] Info: Buffering --> 96%
+
+[10:38:27] Info: Buffering --> 97%
+
+[10:38:27] Info: Buffering --> 98%
+
+[10:38:27] Info: Buffering --> 99%
+
+[10:38:27] Info: Buffering --> 100%
+
+[10:48:43] Info: : GstPipelineHandler::HandleMessage(): Received EOS message 
+
+[10:48:43] Info: : Restarting Pipeline 
+
+[10:48:43] Info: : Done Restarting Pipeline 
+
+[10:48:43] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+
+[10:48:43] Info: Buffering --> 0%
+
+[10:48:43] Info: Buffering --> 1%
+
+[10:48:43] Info: Buffering --> 0%
+
+[10:48:43] Info: Buffering --> 3%
+
+[10:48:43] Info: Buffering --> 0%
+
+[10:48:43] Info: Buffering --> 3%
+
+[10:48:43] Info: Buffering --> 0%
+
+[10:48:43] Info: Buffering --> 100%
+
+[10:48:43] Warning: : GstPipelineHandler::HandleMessage(): error in module hlsdemux1  reported: Internal data stream error. - ../gst-libs/gst/adaptivedemux/gstadaptivedemux.c(3891): gst_adaptive_demux_stream_download_loop (): /GstPipeline:pipeline0/GstURIDecodeBin3:uridecodebin3-0/GstURISourceBin:urisourcebin1/GstHLSDemux:hlsdemux1:
 streaming stopped, reason not-linked (-1)
 

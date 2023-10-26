@@ -20,7 +20,10 @@ public abstract class IGstPlayer
     {
         get
         {
-            return GStLib.mray_gst_PlayerIsPlaying(m_Instance);
+        	if(GStLib.isUnloaded)
+        		return false;
+        	
+        	return GStLib.mray_gst_PlayerIsPlaying(m_Instance);
         }
     }
 
@@ -35,28 +38,34 @@ public abstract class IGstPlayer
     public abstract int GetCaptureRate(int index);
     public virtual void Destroy()
     {
-        GStLib.mray_gst_PlayerDestroy(m_Instance);
+        if(!GStLib.isUnloaded)
+        	GStLib.mray_gst_PlayerDestroy(m_Instance);
+        
         m_Instance = IntPtr.Zero;
     }
 
     public void Play()
     {
-        GStLib.mray_gst_PlayerPlay(m_Instance);
+    	if(!GStLib.isUnloaded)
+        	GStLib.mray_gst_PlayerPlay(m_Instance);
     }
 
     public void Pause()
     {
-        GStLib.mray_gst_PlayerPause(m_Instance);
+        if(!GStLib.isUnloaded)
+        	GStLib.mray_gst_PlayerPause(m_Instance);
     }
 
     public void Stop()
     {
-        GStLib.mray_gst_PlayerStop(m_Instance);
+    	if(!GStLib.isUnloaded)
+        	GStLib.mray_gst_PlayerStop(m_Instance);
     }
 
     public void Close()
     {
-        GStLib.mray_gst_PlayerClose(m_Instance);
+    	if(!GStLib.isUnloaded)    
+        	GStLib.mray_gst_PlayerClose(m_Instance);
     }
 
     public bool Seek(long pos)

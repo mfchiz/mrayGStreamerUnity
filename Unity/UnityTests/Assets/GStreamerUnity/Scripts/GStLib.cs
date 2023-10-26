@@ -61,14 +61,13 @@ public enum EPixelFormat
 public class GStLib : MonoBehaviour
 {
 
+	public static bool isUnloaded = false;
+	public static bool isSetup = false;
 	
 #if UNITY_EDITOR
 
 	const string libName = "libGStreamerUnityPlugin.so";
-	
-	static bool isUnloaded = false;
-	static bool isSetup = false;
- 
+
 	// Handle to the C++ DLL
 	public static IntPtr libraryHandle;
 
@@ -733,8 +732,6 @@ public class GStLib : MonoBehaviour
 
 	public static void Setup()
 	{
-	
-	
 	#if UNITY_EDITOR
 		if(!isSetup){
 
@@ -1065,16 +1062,12 @@ public class GStLib : MonoBehaviour
 			mray_SetDebugFunction =
 			 GetDelegate<mray_SetDebugFunctionDelegate>(libraryHandle, "mray_SetDebugFunction");
 
- 
-			isSetup=true;
-			
+
 			UnityEngine.Debug.Log("GStLib Setup Complete of Delegates");
 		}
 		
 	#endif
-	
-	
-
+		isSetup=true;		
 	}
 	
 	public static void Unload ()
@@ -1198,11 +1191,10 @@ public class GStLib : MonoBehaviour
 			DeleteTextureWrapper = null;
 			SendTexture = null;
 
-
 		}
-		isUnloaded=true;
 	}
 	#endif
+		isUnloaded=true;
 	}
 	
 	

@@ -309,6 +309,10 @@ namespace video{
 		EMF_2X=2,
 		EMF_4X=4,
 	};
+	
+
+
+
 }
 }
 

@@ -14,7 +14,7 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 
 	public Texture VideoTexture;
 
-	public bool ConvertToRGB=true;
+	public bool ConvertToRGB=false;
 
 	bool _disabledPause;
 
@@ -75,6 +75,7 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 
 		m_Texture.OnFrameGrabbed += OnFrameGrabbed;
 
+
 		_Processor.ShaderName="Image/I420ToRGB";
 
 		if (PostProcessors != null) {
@@ -105,10 +106,13 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 
 		if (ConvertToRGB) {
 			if (m_Texture.PlayerTexture () [0].format == TextureFormat.Alpha8)
+			{
 				VideoTexture = _Processor.ProcessTexture (tex);
-			else
+				Debug.Log("Ryan got here");
+			}else
+			{
 				VideoTexture = tex;
-			
+			}
 		} else {
 			VideoTexture = tex;
 		}

@@ -26,6 +26,9 @@ public class GStreamerCore {
 	{
 		get 	
 		{
+			if (GStLib.isUnloaded) 
+				return false;
+			
 			return GStLib.mray_gstreamer_isActive();	
 		}
 	}
@@ -48,7 +51,7 @@ public class GStreamerCore {
 	}
 	public static void Unref()
 	{
-		if (IsActive) 
+		if (IsActive && !GStLib.isUnloaded) 
 			GStLib.mray_gstreamer_shutdown();
 		/*
 		if (!IsActive) {

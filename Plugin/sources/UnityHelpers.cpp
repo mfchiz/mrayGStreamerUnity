@@ -135,8 +135,11 @@ std::string LogManager::DetermineLogFilePath(const std::string& fileName)
 
 void CopyToTexture(const ImageInfo* src, uchar* dst,video::EPixelFormat fmt)
 {
-	if (fmt == video::EPixel_I420 || fmt==video::EPixelFormat::EPixel_LUMINANCE8
-		|| fmt == video::EPixelFormat::EPixel_R8G8B8 || fmt == video::EPixelFormat::EPixel_B8G8R8
+	if (fmt == video::EPixel_I420 
+		|| fmt==video::EPixelFormat::EPixel_LUMINANCE8
+		|| fmt == video::EPixelFormat::EPixel_R8G8B8 
+		|| fmt == video::EPixelFormat::EPixel_B8G8R8
+		|| fmt ==video::EPixelFormat::EPixel_R8G8B8A8 
         || 
 		((fmt==video::EPixel_LUMINANCE8 || fmt==video::EPixel_Alpha8 ) &&
 		(src->format == video::EPixel_LUMINANCE8 || src->format == video::EPixel_Alpha8 || src->format == video::EPixel_LUMINANCE16)))
@@ -156,6 +159,7 @@ void CopyToTexture(const ImageInfo* src, uchar* dst,video::EPixelFormat fmt)
             ptr[1] = srcPtr[1];
             ptr[2] = srcPtr[2];
             srcPtr += 3;
+                            
         }else if(src->format==video::EPixelFormat::EPixel_Alpha8 ||
                  src->format == video::EPixelFormat::EPixel_LUMINANCE8)
         {
@@ -169,8 +173,59 @@ void CopyToTexture(const ImageInfo* src, uchar* dst,video::EPixelFormat fmt)
 	}
 }
 
+	const char* getEPixelFormatName(enum EPixelFormat format) 
+	{
+	   switch (format) 
+	   {
+		case EPixel_Unkown: return "EPixel_Unkown";
+		case EPixel_LUMINANCE8: return "EPixel_LUMINANCE8";
+		case EPixel_LUMINANCE16: return "EPixel_LUMINANCE16";
+		case EPixel_Alpha8: return "EPixel_Alpha8";
+		case EPixel_Alpha4Luminance4: return "EPixel_Alpha4Luminance4";
+		case EPixel_Alpha8Luminance8: return "EPixel_Alpha8Luminance8";
+		case EPixel_R5G6B5: return "EPixel_R5G6B5";
+		case EPixel_R8G8B8: return "EPixel_R8G8B8";
+		case EPixel_R8G8B8A8: return "EPixel_R8G8B8A8";
+		case EPixel_X8R8G8B8: return "EPixel_X8R8G8B8";
+		case EPixel_B8G8R8: return "EPixel_B8G8R8";
+		case EPixel_B8G8R8A8: return "EPixel_B8G8R8A8";
+		case EPixel_X8B8G8R8: return "EPixel_X8B8G8R8";
+		case EPixel_Float16_R: return "EPixel_Float16_R";
+		case EPixel_Float16_RGB: return "EPixel_Float16_RGB";
+		case EPixel_Float16_RGBA: return "EPixel_Float16_RGBA";
+		case EPixel_Float16_GR: return "EPixel_Float16_GR";
+		case EPixel_Float32_R: return "EPixel_Float32_R";
+		case EPixel_Float32_RGB: return "EPixel_Float32_RGB";
+		case EPixel_Float32_RGBA: return "EPixel_Float32_RGBA";
+		case EPixel_Float32_GR: return "EPixel_Float32_GR";
+		case EPixel_Depth: return "EPixel_Depth";
+		case EPixel_Stecil: return "EPixel_Stecil";
+		case EPixel_Short_RGBA: return "EPixel_Short_RGBA";
+		case EPixel_Short_RGB: return "EPixel_Short_RGB";
+		case EPixel_Short_GR: return "EPixel_Short_GR";
+		case EPixel_DXT1: return "EPixel_DXT1";
+		case EPixel_DXT2: return "EPixel_DXT2";
+		case EPixel_DXT3: return "EPixel_DXT3";
+		case EPixel_DXT4: return "EPixel_DXT4";
+		case EPixel_DXT5: return "EPixel_DXT5";
+		case EPixel_I420: return "EPixel_I420";
+		case EPixel_Y42B: return "EPixel_Y42B";
+		case EPixel_NV12: return "EPixel_NV12";
+
+	   }
+	   return "EPixel_Unkown";
+	}
+
+
+
 void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHeight,uchar** data,int* pitch,int* comps)
 {
+
+     
+    std::string s = getEPixelFormatName(ifo->format);
+        
+    LogMessage(s, ELL_INFO);
+        
     
     if (ifo->format == video::EPixel_I420 ||
 		ifo->format == video::EPixel_NV12 ||
@@ -182,11 +237,25 @@ void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHe
         *pitch = _UnityTextureWidth;
         
         *data = ifo->imageData;
-           
+                
 	}
 	else if (ifo->format == video::EPixel_LUMINANCE16)
 	{
 		*comps = 1;
+		*pitch = _UnityTextureWidth;
+		*data = ifo->imageData;
+	        
+	}
+	else if (ifo->format == video::EPixel_R8G8B8A8)
+	{
+		*comps = 4;
+		*pitch = _UnityTextureWidth;
+		*data = ifo->imageData;
+	        
+	}
+	else if (ifo->format == video::EPixel_B8G8R8A8)
+	{
+		*comps = 4;
 		*pitch = _UnityTextureWidth;
 		*data = ifo->imageData;
 	        
@@ -196,11 +265,15 @@ void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHe
         //				data = new uchar[_UnityTextureWidth*_UnityTextureHeight * 4];
         // 				pitch = _UnityTextureWidth * 3;
         // 				data = ifo->imageData;
-        
+
+    
+       
         if (ifo->tmpBuffer->Size != ifo->Size)
         {
             ifo->tmpBuffer->createData(ifo->Size, video::EPixel_R8G8B8A8);
         }
+      
+      
         *pitch = _UnityTextureWidth * 4;
         *data = ifo->tmpBuffer->imageData;
         *comps=4;
