@@ -291,6 +291,13 @@ extern "C" UNITY_INTERFACE_EXPORT void mray_gst_customPlayerSetPipeline(
         p->SetPipelineString(pipeline);
     }
 }
+extern "C" UNITY_INTERFACE_EXPORT void mray_gst_customPlayerSetNewVideoSampleCallback(
+    GstCustomVideoPlayer* p, NewVideoSampleCallback cb) {
+    if (p != NULL)
+    {
+        p->SetNewVideoSampleCallback(cb);
+    }
+}
 extern "C" UNITY_INTERFACE_EXPORT void mray_gst_customPlayerSetLoop(
     GstCustomVideoPlayer* p, bool loop) {
     if (p != NULL) {

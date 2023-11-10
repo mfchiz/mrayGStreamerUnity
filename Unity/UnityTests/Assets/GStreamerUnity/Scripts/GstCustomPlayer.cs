@@ -1,10 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;	// For DllImport.
+using AOT;
 using System;
+
 
 public class GstCustomPlayer : IGstPlayer
 {
+
+    protected static Dictionary<int, GstCustomPlayer> _playerList = new Dictionary<int, GstCustomPlayer>();
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public delegate void NewVideoSampleCallback(System.IntPtr playerInstance);
+
+    public delegate void OnFrameReady();
+
+	protected NewVideoSampleCallback _videoSampleCallback;
+
+    protected OnFrameReady _onFrameReadyCallback;
 
     class _AudioWrapper : IGstAudioPlayer
     {
@@ -98,8 +111,52 @@ public class GstCustomPlayer : IGstPlayer
     public GstCustomPlayer()
     {
         m_Instance = GStLib.mray_gst_createCustomVideoPlayer();
+
+        //record the player in the list
+        _playerList.Add(m_Instance.GetHashCode(), this);
+    
+        //setup callback delegate from C
+        _videoSampleCallback=new NewVideoSampleCallback(OnVideoSample);
+
+        //send to C code
+        GStLib.mray_gst_customPlayerSetNewVideoSampleCallback(m_Instance, _videoSampleCallback);
+
         _audioWrapper = new _AudioWrapper(this);
     }
+
+    public override void Destroy()
+    {
+  
+        _onFrameReadyCallback=null;
+
+        //remove player from list
+        _playerList.Remove(m_Instance.GetHashCode());
+        
+        base.Destroy();
+    }
+
+    public static void KillAll()
+    {
+        foreach( GstCustomPlayer p in _playerList.Values )
+        {
+            p.Destroy();
+        }
+    }
+
+    public void SetOnFrameReady(OnFrameReady cb)
+    {
+        _onFrameReadyCallback=cb;
+    }
+
+    [MonoPInvokeCallback(typeof(NewVideoSampleCallback))]
+    public static void OnVideoSample(System.IntPtr player)
+	{
+        if(_playerList.ContainsKey(player.GetHashCode()))
+        {     
+           _playerList[player.GetHashCode()]._onFrameReadyCallback();
+        }
+    }
+
 
     public override int GetCaptureRate(int index)
     {

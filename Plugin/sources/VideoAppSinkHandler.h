@@ -20,7 +20,7 @@ namespace mray
 {
 namespace video
 {
-	class VideoAppSinkHandlerData;
+class VideoAppSinkHandlerData;
 
 class VideoAppSinkHandler :public IAppSinkHandler
 {
@@ -53,6 +53,10 @@ protected:
 	GstMyListener* m_rtpDataListener;
 	GstMyListener* m_preappsrcListener;
 
+  	//DECLARE_FIRE_METHOD(OnNewSample, (IAppSinkHandler * v), (v));
+  //	DECLARE_FIRE_METHOD(OnNewVideoSample, (IAppSinkHandler * v), (v));
+
+
 	//DECLARE_FIRE_METHOD(OnStreamPrepared, (VideoAppSinkHandler*v), (v));
 
 	bool _Allocate(int width, int height, video::EPixelFormat fmt);
@@ -65,12 +69,22 @@ public:
 		m_samplesCount= 0;
 	}
 	GstAppSink*  GetSink(){return m_sink;}
+
 	void SetRTPListener(GstMyListener* preRTP, GstMyListener* postRTP, GstMyListener* preapp);
 
 	void Close();
 	bool 			isFrameNew(){ return m_IsFrameNew; }
-	video::ImageInfo*	getPixelsRef(int surface = 0){ return &m_pixels[surface].data; }
-	GstImageFrame*	getPixelFrame(int surface = 0){ return &m_pixels[surface]; }
+
+	video::ImageInfo*	getPixelsRef(int surface = 0){ 
+	//	    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+		return &m_pixels[surface].data; 
+	}
+
+	GstImageFrame*	getPixelFrame(int surface = 0){ 
+	//	    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+			return &m_pixels[surface]; 
+	}
+
 	int getSurfaceCount(){ return m_surfaceCount; }
 	bool GrabFrame();
 	uint GetFrameID(){ return m_frameID; }

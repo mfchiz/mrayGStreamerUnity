@@ -87,8 +87,6 @@ public abstract class GstBaseTexture : MonoBehaviour {
 		
 		GStreamerCore.Ref();
 		_initialize ();
-
-		
 	}
 
 	public virtual void Destroy()
@@ -98,13 +96,7 @@ public abstract class GstBaseTexture : MonoBehaviour {
 			GetPlayer().Stop();
 			GetPlayer().Close();
 			GetPlayer().Destroy ();
-			GStreamerCore.Unref();
 		}
-	}
-	
-	void OnApplicationQuit()
-	{
-	//	Destroy ();
 	}
 	
 	public void Play()
@@ -130,10 +122,7 @@ public abstract class GstBaseTexture : MonoBehaviour {
 		if(GetPlayer()!=null)
 			GetPlayer().Close ();
 	}
-	void OnDestroy()
-	{
-		Destroy ();
-	}
+
 	TextureFormat GetFormat(int components)
 	{
 		if (components == 1)

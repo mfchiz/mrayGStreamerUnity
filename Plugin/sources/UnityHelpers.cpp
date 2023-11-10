@@ -224,6 +224,7 @@ void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHe
      
     std::string s = getEPixelFormatName(ifo->format);
         
+    LogMessage("CheckDataFormat", ELL_INFO);
     LogMessage(s, ELL_INFO);
         
     

@@ -16,15 +16,19 @@ class IAppSinkHandler;
 
 class IAppSinkHandlerListener {
  public:
-  virtual void OnStreamPrepared(IAppSinkHandler*){};
-  virtual void OnNewSample(IAppSinkHandler*){};
+  virtual void OnStreamPrepared(IAppSinkHandler* a){};
+  virtual void OnNewSample(IAppSinkHandler* a){};
+  virtual void OnNewVideoSample(IAppSinkHandler* a){};
+  virtual void OnNewAudioSample(IAppSinkHandler* a){};
 };
 
 class IAppSinkHandler : public ListenerContainer<IAppSinkHandlerListener*> {
  protected:
   GstAppSink* m_sink;
-  DECLARE_FIRE_METHOD(OnStreamPrepared, (IAppSinkHandler * v), (v));
-  DECLARE_FIRE_METHOD(OnNewSample, (IAppSinkHandler * v), (v));
+  DECLARE_FIRE_METHOD(OnStreamPrepared, (IAppSinkHandler* v), (v));
+  DECLARE_FIRE_METHOD(OnNewSample, (IAppSinkHandler* v), (v));
+  DECLARE_FIRE_METHOD(OnNewVideoSample, (IAppSinkHandler* v), (v));
+  DECLARE_FIRE_METHOD(OnNewAudioSample, (IAppSinkHandler* v), (v));
 
  public:
   IAppSinkHandler();

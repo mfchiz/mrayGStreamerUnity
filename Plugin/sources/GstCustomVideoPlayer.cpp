@@ -25,21 +25,27 @@ class GstCustomVideoPlayerImpl : public GstPipelineHandler,
   VideoAppSinkHandler m_videoHandler;
   AudioAppSinkHandler m_audioHandler;
 
+
   bool _loop;
 
  public:
   virtual void OnPipelineEOS(GstPipelineHandler* p) {
     if (_loop) this->SetPosition(0);
   }
-
  public:
   GstCustomVideoPlayerImpl() {
     m_videoSink = 0;
     m_audioSink = 0;
     _loop = false;
-    this->AddListener(this);
+
+    //listen to app sink events
+ //   m_videoHandler.AddListener(this); // add sink listening
+    this->AddListener(this);          // add pipeline listening
+
   }
-  virtual ~GstCustomVideoPlayerImpl() {}
+  virtual ~GstCustomVideoPlayerImpl() {
+    this->RemoveListener(this);
+  }
 
   void _BuildPipeline() {
     m_pipeLineString = m_inputPipeline;  // +" ! appsink name=videoSink ";
@@ -55,6 +61,9 @@ class GstCustomVideoPlayerImpl : public GstPipelineHandler,
     GError* err = 0;
     GstElement* p = gst_parse_launch(m_pipeLineString.c_str(), &err); 
     LogMessage("Creating Pipeline: " + m_pipeLineString, ELL_INFO);
+    
+    LogMessage(gst_version_string(), ELL_INFO);
+        
     if (err) {
       LogMessage(
           std::string("GstCustomVideoPlayer: Pipeline error: ") + err->message,
@@ -66,29 +75,22 @@ class GstCustomVideoPlayerImpl : public GstPipelineHandler,
 
     m_videoSink = GST_APP_SINK(gst_bin_get_by_name(GST_BIN(p), "videoSink"));
     if (m_videoSink) {
+    
       m_videoHandler.SetSink(m_videoSink);
 
-      // setup video sink
-      // gst_base_sink_set_sync(GST_BASE_SINK(m_videoSink), true);
-      //  g_object_set(G_OBJECT(m_videoSink), "emit-signals", FALSE,
-      //  (void*)NULL);
-      // 		gst_base_sink_set_async_enabled(GST_BASE_SINK(m_videoSink),
-      // TRUE);
-
       // attach videosink callbacks
-
       GstAppSinkCallbacks gstCallbacks;
+    
       memset(&gstCallbacks, 0, sizeof(gstCallbacks));
+      
       gstCallbacks.eos = &VideoAppSinkHandler::on_eos_from_source;
-      gstCallbacks.new_preroll =
-          &VideoAppSinkHandler::on_new_preroll_from_source;
-#if GST_VERSION_MAJOR == 0
-      gstCallbacks.new_buffer = &VideoAppSinkHandler::on_new_buffer_from_source;
-#else
+     
+      gstCallbacks.new_preroll = &VideoAppSinkHandler::on_new_preroll_from_source;
+
       gstCallbacks.new_sample = &VideoAppSinkHandler::on_new_buffer_from_source;
-#endif
-      gst_app_sink_set_callbacks(GST_APP_SINK(m_videoSink), &gstCallbacks,
-                                 &m_videoHandler, NULL);
+
+      gst_app_sink_set_callbacks(m_videoSink, &gstCallbacks,&m_videoHandler, NULL);
+
     }
 
     void* audio = (gst_bin_get_by_name(GST_BIN(p), "audioSink"));
@@ -106,11 +108,9 @@ class GstCustomVideoPlayerImpl : public GstPipelineHandler,
       gstCallbacks.eos = &AudioAppSinkHandler::on_eos_from_source;
       gstCallbacks.new_preroll =
           &AudioAppSinkHandler::on_new_preroll_from_source;
-#if GST_VERSION_MAJOR == 0
-      gstCallbacks.new_buffer = &AudioAppSinkHandler::on_new_buffer_from_source;
-#else
+
       gstCallbacks.new_sample = &AudioAppSinkHandler::on_new_buffer_from_source;
-#endif
+
       gst_app_sink_set_callbacks(GST_APP_SINK(m_audioSink), &gstCallbacks,
                                  &m_audioHandler, NULL);
     }
@@ -119,6 +119,7 @@ class GstCustomVideoPlayerImpl : public GstPipelineHandler,
   }
 
   bool IsStream() { return true; }
+
 
   virtual void Close() {
     m_videoHandler.Close();
@@ -171,17 +172,25 @@ class GstCustomVideoPlayerImpl : public GstPipelineHandler,
     return true;
   }
   int GetAudioChannelsCount() { return m_audioHandler.ChannelsCount(); }
+
 };
 
 GstCustomVideoPlayer::GstCustomVideoPlayer() {
   m_impl = new GstCustomVideoPlayerImpl();
+  m_impl->m_videoHandler.AddListener(this); // add sink listening
 }
 
-GstCustomVideoPlayer::~GstCustomVideoPlayer() { delete m_impl; }
+GstCustomVideoPlayer::~GstCustomVideoPlayer() { 
+  m_impl->m_videoHandler.RemoveListener(this); 
+  m_newVideoSampleCallback = nullptr;
+  delete m_impl; 
+}
+
 GstPipelineHandler* GstCustomVideoPlayer::GetPipeline() { return m_impl; }
 void GstCustomVideoPlayer::SetPipelineString(const std::string& pipeline) {
   m_impl->SetPipelineString(pipeline);
 }
+
 bool GstCustomVideoPlayer::CreateStream() { return m_impl->CreateStream(); }
 
 void GstCustomVideoPlayer::SetVolume(float vol) { m_impl->SetVolume(vol); }
@@ -192,7 +201,11 @@ void GstCustomVideoPlayer::Stop() { m_impl->Stop(); }
 void GstCustomVideoPlayer::Pause() { m_impl->Pause(); }
 bool GstCustomVideoPlayer::IsLoaded() { return m_impl->IsLoaded(); }
 bool GstCustomVideoPlayer::IsPlaying() { return m_impl->IsPlaying(); }
-void GstCustomVideoPlayer::Close() { m_impl->Close(); }
+
+void GstCustomVideoPlayer::Close() { 
+  m_newVideoSampleCallback=nullptr;
+  m_impl->Close(); 
+}
 
 const Vector2d& GstCustomVideoPlayer::GetFrameSize() {
   return m_impl->GetFrameSize();

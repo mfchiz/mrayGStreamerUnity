@@ -47,21 +47,16 @@ extern "C" UNITY_INTERFACE_EXPORT void mray_gstreamer_shutdown()
 	if (video::GStreamerCore::RefCount() == 0)
     {
 #ifdef WIN32
-
 		delete OS::WinThreadManager::getInstancePtr();
 		delete network::Win32Network::getInstancePtr();
-#else
-#ifdef __APPLE__
+#elif __APPLE__
 		delete OS::OSXThreadManager::getInstancePtr();
-#else
-#ifdef __ANDROID__
+#elif __ANDROID__
 		delete OS::AndroidThreadManager::getInstancePtr();
-
-
+#elif __linux__
+		delete OS::OSXThreadManager::getInstancePtr();
 #endif
-#endif
-#endif
-	}
+	} 
 
 }
 

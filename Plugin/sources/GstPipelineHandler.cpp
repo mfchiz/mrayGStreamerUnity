@@ -5,6 +5,7 @@
 #include <gst/net/gstnet.h>
 
 #include <mutex>
+#include <string>
 
 #include "GStreamerCore.h"
 #include "IThreadManager.h"
@@ -245,10 +246,6 @@ GstPipelineHandler::GstPipelineHandler(const char *name) {
 }
 GstPipelineHandler::~GstPipelineHandler() {
   Close();
-  GStreamerCore::Instance()->Unref();
-
-  OS::IThreadManager::getInstance().sleep(100);
-  std::lock_guard<std::recursive_mutex> lock(GetMutex(1));
   delete m_data;
   m_data = 0;
 }
@@ -368,9 +365,16 @@ long GstPipelineHandler::GetDuration() {
 }
 bool GstPipelineHandler::IsResettingEOS() { return m_data->_restartingEOS; }
 void GstPipelineHandler::SetPaused(bool p) {
+  if (m_data->gstPipeline == NULL && m_data->busWatchID == 0)
+  {
+    m_data->paused = true;
+    m_data->Loaded = false;
+    m_data->playing = false;
+    return;
+  }
   std::lock_guard<std::recursive_mutex> lock(GetMutex());
   m_data->paused = p;
-  if (m_data->Loaded || true) {
+  if (m_data->Loaded) {
     if (m_data->playing) {
       GstState state;
       if (m_data->paused) {
@@ -405,9 +409,17 @@ void GstPipelineHandler::SetPaused(bool p) {
   }
 }
 void GstPipelineHandler::Stop() {
+  if (m_data->gstPipeline == NULL && m_data->busWatchID == 0)
+  {
+    m_data->paused = true;
+    m_data->Loaded = false;
+    m_data->playing = false;
+    return;
+  }
   LogMessage(m_data->_name + ": GstPipelineHandler::Stop ", ELL_INFO);
   if (!m_data->Loaded) return;
   std::lock_guard<std::recursive_mutex> lock(GetMutex());
+  if (m_data->paused == true && m_data->playing == false) return;
   GstState state;
   m_data->_seekPos = GST_CLOCK_TIME_NONE;
   // gst_element_send_event(m_data->gstPipeline, gst_event_new_eos());
@@ -444,11 +456,16 @@ bool GstPipelineHandler::QueryLatency(bool &isLive, ulong &minLatency,
   return ok;
 }
 void GstPipelineHandler::Close() {
+  if (m_data->gstPipeline == NULL && m_data->busWatchID == 0)
+  {
+    m_data->Loaded = false;
+    return;
+  }
   LogMessage(m_data->_name + ": GstPipelineHandler::Close ", ELL_INFO);
   std::lock_guard<std::recursive_mutex> lock(GetMutex());
   Stop();
 
-  if (true || m_data->Loaded) {
+  if (m_data->Loaded) {
     if (m_data->busWatchID != 0) g_source_remove(m_data->busWatchID);
     m_data->busWatchID = 0;
 

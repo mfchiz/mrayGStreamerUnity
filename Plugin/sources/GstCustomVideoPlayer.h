@@ -7,17 +7,27 @@
 
 #include "IGStreamerPlayer.h"
 #include "IVideoGrabber.h"
+#include "VideoAppSinkHandler.h"
 #include "UnityHelpers.h"
 namespace mray {
 
 namespace video {
 
+// expose the NewSampleCallback signature where relevant.
+extern "C"
+{
+	typedef void(UNITY_INTERFACE_API* NewVideoSampleCallback)(void* p);
+}
+
 class GstCustomVideoPlayerImpl;
 
-class GstCustomVideoPlayer : public IGStreamerPlayer {
+class GstCustomVideoPlayer : public IGStreamerPlayer,
+                            public IAppSinkHandlerListener {
    protected:
     GstCustomVideoPlayerImpl* m_impl;
     GstPipelineHandler* GetPipeline();
+
+    NewVideoSampleCallback m_newVideoSampleCallback = nullptr;
 
    public:
     GstCustomVideoPlayer();
@@ -65,6 +75,23 @@ class GstCustomVideoPlayer : public IGStreamerPlayer {
     int GetAudioChannelsCount();
 
     virtual int GetPort(int i) { return 0; }
+
+    void SetNewVideoSampleCallback(NewVideoSampleCallback cb)
+    {
+        m_newVideoSampleCallback = cb;
+    }
+
+    virtual void OnNewVideoSample(IAppSinkHandler* a) {
+        if(!m_newVideoSampleCallback)
+        {
+         return;
+        }
+        if(this->IsPlaying())
+        {
+            m_newVideoSampleCallback(this);  
+        }    
+    }
+
 };
 
 }  // namespace video

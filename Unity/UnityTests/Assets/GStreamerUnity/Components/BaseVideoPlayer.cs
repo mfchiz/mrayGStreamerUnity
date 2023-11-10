@@ -108,7 +108,6 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 			if (m_Texture.PlayerTexture () [0].format == TextureFormat.Alpha8)
 			{
 				VideoTexture = _Processor.ProcessTexture (tex);
-				Debug.Log("Ryan got here");
 			}else
 			{
 				VideoTexture = tex;

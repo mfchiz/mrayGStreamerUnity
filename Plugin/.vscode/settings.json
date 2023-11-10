@@ -138,7 +138,9 @@
         "listenercontainer.h": "c",
         "capabilities.h": "c",
         "variant.hpp": "c",
-        "ivideodevicehelper.h": "c"
+        "ivideodevicehelper.h": "c",
+        "numbers": "cpp",
+        "semaphore": "cpp"
     },
     "python.formatting.provider": "yapf"
 }

@@ -257,8 +257,11 @@ void VideoAppSinkHandler::SetRTPListener(GstMyListener* preRTP,
 
 GstFlowReturn VideoAppSinkHandler::process_sample(
     std::shared_ptr<GstSample> sample, bool preroll) {
-  GstBuffer* _buffer = gst_sample_get_buffer(sample.get());
-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+    
+  GstSample* _sample = sample.get();   
+  GstBuffer* _buffer = gst_sample_get_buffer(_sample);
+
   if (false) {
     GstMeta* meta = gst_buffer_iterate_meta(_buffer, 0);
     if (meta) {
@@ -266,7 +269,7 @@ GstFlowReturn VideoAppSinkHandler::process_sample(
     }
   }
 
-  GstVideoInfo vinfo = getVideoInfo(sample.get());
+  GstVideoInfo vinfo = getVideoInfo(_sample);
   video::EPixelFormat fmt = getVideoFormat(vinfo.finfo->format);
   m_pixelFormat = fmt;
   if (fmt == video::EPixel_Unkown) {
@@ -401,11 +404,15 @@ GstFlowReturn VideoAppSinkHandler::process_sample(
     if (vinfo.stride[0] == 0) {
       //	ofNotifyEvent(prerollEvent, eventPixels);
     }
+
+    FIRE_LISTENR_METHOD(OnNewVideoSample, (this));
     FIRE_LISTENR_METHOD(OnNewSample, (this));
+    
   } else {
   }
+  
+  //gst_sample_unref(_sample);
   gst_buffer_unmap(_buffer, &mapinfo);
-
   ++m_samplesCount;
   return GST_FLOW_OK;
 }

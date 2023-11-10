@@ -703,8 +703,8 @@ void* RenderAPI_Vulkan::BeginModifyTexture(void* textureHandle, int textureWidth
     if (!m_UnityVulkan->CommandRecordingState(&recordingState, kUnityVulkanGraphicsQueueAccess_DontCare))
         return NULL;
 
-    //SafeDestroy(recordingState.currentFrameNumber, m_TextureStagingBuffer);
-    ImmediateDestroyVulkanBuffer(m_TextureStagingBuffer);
+    SafeDestroy(recordingState.currentFrameNumber, m_TextureStagingBuffer);
+    //ImmediateDestroyVulkanBuffer(m_TextureStagingBuffer);
     
     m_TextureStagingBuffer = VulkanBuffer();
       	

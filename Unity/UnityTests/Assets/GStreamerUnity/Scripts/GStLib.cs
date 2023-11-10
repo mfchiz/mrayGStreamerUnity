@@ -71,6 +71,8 @@ public class GStLib : MonoBehaviour
 	// Handle to the C++ DLL
 	public static IntPtr libraryHandle;
 
+
+	public delegate void mray_gst_customPlayerSetNewVideoSampleCallbackDelegate(System.IntPtr p, [MarshalAs(UnmanagedType.FunctionPtr)] GstCustomPlayer.NewVideoSampleCallback cb);
 	public delegate System.IntPtr mray_gst_createNetworkAudioPlayerDelegate();
 	public delegate void mray_gst_netAudioPlayerSetIPDelegate(System.IntPtr p, [MarshalAs(UnmanagedType.LPStr)]string ip, int audioPort, bool rtcp);
 	public delegate bool mray_gst_netAudioPlayerCreateStreamDelegate(System.IntPtr p);
@@ -182,8 +184,7 @@ public class GStLib : MonoBehaviour
 	public delegate void DeleteTextureWrapperDelegate(System.IntPtr w);
 	public delegate bool SendTextureDelegate(System.IntPtr w,System.IntPtr textureID);
 	
-	
-	
+	public static mray_gst_customPlayerSetNewVideoSampleCallbackDelegate mray_gst_customPlayerSetNewVideoSampleCallback;
 	public static mray_gst_createNetworkAudioPlayerDelegate mray_gst_createNetworkAudioPlayer;
 	public static mray_gst_netAudioPlayerSetIPDelegate mray_gst_netAudioPlayerSetIP;
 	public static mray_gst_netAudioPlayerCreateStreamDelegate mray_gst_netAudioPlayerCreateStream;
@@ -397,6 +398,9 @@ public class GStLib : MonoBehaviour
  
 #else
 		
+	[DllImport(libName, CallingConvention = CallingConvention.Cdecl)]
+	extern static public void mray_gst_customPlayerSetNewVideoSampleCallback(System.IntPtr p, [MarshalAs(UnmanagedType.FunctionPtr)] GstCustomPlayer.NewVideoSampleCallback cb);
+
 	[DllImport(libName, CallingConvention = CallingConvention.Cdecl)]
 	extern static public System.IntPtr mray_gst_createNetworkAudioPlayer();
 
@@ -886,6 +890,9 @@ public class GStLib : MonoBehaviour
 			 
 */
 
+			mray_gst_customPlayerSetNewVideoSampleCallback =
+			 GetDelegate<mray_gst_customPlayerSetNewVideoSampleCallbackDelegate>(libraryHandle, "mray_gst_customPlayerSetNewVideoSampleCallback");
+
 			mray_gst_createCustomImageStreamer =
 			 GetDelegate<mray_gst_createCustomImageStreamerDelegate>(libraryHandle, "mray_gst_createCustomImageStreamer");
 
@@ -1079,7 +1086,8 @@ public class GStLib : MonoBehaviour
 		{	
 			CloseLibrary(libraryHandle);	
 			libraryHandle = IntPtr.Zero;
-
+			
+			mray_gst_customPlayerSetNewVideoSampleCallback = null;
 			mray_gst_createNetworkAudioPlayer = null;
 			mray_gst_netAudioPlayerSetIP = null;
 			mray_gst_netAudioPlayerCreateStream = null;
@@ -1206,6 +1214,8 @@ public class GStLib : MonoBehaviour
 
 	void OnApplicationQuit()
 	{
+		GstCustomTexture.DestroyAll();
+		GStreamerCore.Unref();
 		Unload();
 	}
 
