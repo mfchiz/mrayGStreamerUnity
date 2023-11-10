@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 
 public class GstCustomTexture : GstBaseTexture {
 
@@ -12,6 +11,9 @@ public class GstCustomTexture : GstBaseTexture {
 
 	private GstCustomPlayer _player;
 
+	private Coroutine _blitRoutine;
+
+	int _countGrabs=0;
 
 	public GstCustomPlayer Player
 	{
@@ -53,11 +55,22 @@ public class GstCustomTexture : GstBaseTexture {
 
 	public void OnFrameReady()
 	{
-		GrabFrame();
+		if(!_imageGrabed) // only grab if it hasnt been grabbed yet for this frame
+		{
+			_countGrabs++;
+			GrabFrame();
+		}
+
 	}
 
 	public override void Destroy ()
 	{
+		
+		if(_blitRoutine!=null)
+		{
+			StopCoroutine(_blitRoutine);
+		}
+		
 		_textureList.Remove(this);
 
 		base.Destroy ();
@@ -128,7 +141,9 @@ public class GstCustomTexture : GstBaseTexture {
 		return;
 
 		if(_imageGrabed){
-			
+
+			_countGrabs=0; // reset count. blitting happpening...
+
 			Resize ((int)_grabbedSize.x,(int) _grabbedSize.y,_grabbedComponents,0);
 			
 			if (m_Texture[0] == null)
@@ -144,7 +159,7 @@ public class GstCustomTexture : GstBaseTexture {
 		}	
 	}
 
-	private IEnumerator CallPluginAtEndOfFrames()
+	private IEnumerator CallBlitEndOfFrames()
 	{
 		while (true) {
 
@@ -159,13 +174,10 @@ public class GstCustomTexture : GstBaseTexture {
 	// Use this for initialization
 	IEnumerator Start () {
 
-		yield return StartCoroutine("CallPluginAtEndOfFrames");
+		_blitRoutine = StartCoroutine("CallBlitEndOfFrames");
+
+		yield return _blitRoutine;
 	}
 
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 }
